@@ -1,0 +1,31 @@
+name: incipit
+synopsis: A Prelude for Polysemy
+description: See <https://hackage.haskell.org/package/incipit/docs/Prelude.html>
+<<: !include shared/meta.yaml
+defaults:
+  local: shared/defaults.yaml
+
+library:
+  source-dirs: lib
+  generated-other-modules:
+    - Paths_incipit
+  dependencies:
+    - name: base
+      version: '>= 4 && < 5'
+      mixin:
+        hiding (Prelude)
+    - name: incipit-core
+      mixin:
+        - hiding (Prelude, Incipit)
+        - (Incipit as IncipitCore)
+    - incipit-base
+    - polysemy >= 1.6
+    - polysemy-conc >= 0.5
+    - polysemy-log >= 0.4
+    - polysemy-resume >= 0.2
+    - polysemy-time >= 0.2.0.3
+  reexported-modules:
+    - Polysemy.Conc
+    - Polysemy.Log
+    - Polysemy.Resume
+    - Polysemy.Time

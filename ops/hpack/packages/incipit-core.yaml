@@ -1,0 +1,38 @@
+name: incipit-core
+synopsis: A Prelude for Polysemy
+description: See <https://hackage.haskell.org/package/incipit/docs/Prelude.html>
+<<: !include shared/meta.yaml
+defaults:
+  local: shared/defaults.yaml
+
+library:
+  source-dirs: lib
+  when:
+    condition: false
+    generated-other-modules:
+      - Paths_incipit_core
+  dependencies:
+    - name: base
+      version: '>= 4 && < 5'
+      mixin:
+        hiding (Prelude)
+    - incipit-base
+    - polysemy >= 1.6
+  reexported-modules:
+    - Data.ByteString
+    - Data.ByteString.Builder
+    - Data.ByteString.Lazy
+    - Data.ByteString.Short
+    - Data.IntMap.Lazy
+    - Data.IntMap.Strict
+    - Data.IntSet
+    - Data.Map.Lazy
+    - Data.Map.Strict
+    - Data.Sequence
+    - Data.Set
+    - Data.Text
+    - Data.Text.IO
+    - Data.Text.Lazy
+    - Data.Text.Lazy.IO
+    - Data.Text.Read
+    - Data.Tree
