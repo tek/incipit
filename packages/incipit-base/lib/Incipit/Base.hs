@@ -5,6 +5,7 @@ module Incipit.Base (
   module Control.Applicative,
   module Control.Arrow,
   module Control.Category,
+  module Control.Exception,
   module Control.Monad,
   module Control.Monad.Fail,
   module Data.Bifunctor,
@@ -61,6 +62,7 @@ import Control.Applicative (
   )
 import Control.Arrow ((&&&))
 import Control.Category ((<<<), (>>>))
+import Control.Exception (Exception, SomeException (..))
 import Control.Monad (
   Monad ((>>), (>>=)),
   MonadPlus (..),
