@@ -19,7 +19,6 @@ module Incipit (
 ) where
 
 import qualified Control.Exception as Base
-import Control.Exception (SomeException)
 import Polysemy
 import Polysemy.Async
 import Polysemy.AtomicState

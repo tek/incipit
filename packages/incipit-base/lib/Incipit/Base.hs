@@ -1,5 +1,3 @@
-{-# options_haddock ignore-exports #-}
-
 -- |Reexports from @base@.
 module Incipit.Base (
   module Control.Applicative,
