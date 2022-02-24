@@ -7,10 +7,6 @@ defaults:
 
 library:
   source-dirs: lib
-  when:
-    condition: false
-    generated-other-modules:
-      - Paths_incipit_base
   dependencies:
     - base >= 4 && < 5
     - bytestring
@@ -35,3 +31,7 @@ library:
     - Data.Text.Lazy.IO
     - Data.Text.Read
     - Data.Tree
+  when:
+    condition: false
+    generated-other-modules:
+      - Paths_incipit_base

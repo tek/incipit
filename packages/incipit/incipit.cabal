@@ -5,7 +5,7 @@ cabal-version: 2.2
 -- see: https://github.com/sol/hpack
 
 name:           incipit
-version:        0.1.0.0
+version:        0.1.0.1
 synopsis:       A Prelude for Polysemy
 description:    See <https://hackage.haskell.org/package/incipit/docs/Prelude.html>
 category:       Prelude
@@ -28,10 +28,6 @@ source-repository head
 library
   exposed-modules:
       Incipit
-  other-modules:
-      Paths_incipit
-  autogen-modules:
-      Paths_incipit
   reexported-modules:
       Polysemy.Conc
     , Polysemy.Log
@@ -105,9 +101,9 @@ library
     , incipit-core
     , polysemy >=1.6
     , polysemy-conc >=0.5
-    , polysemy-log >=0.4
-    , polysemy-resume >=0.2
-    , polysemy-time >=0.2.0.3
+    , polysemy-log >=0.5
+    , polysemy-resume >=0.3
+    , polysemy-time >=0.3
   mixins:
       base hiding (Prelude)
     , incipit-core hiding (Prelude, Incipit)

@@ -7,8 +7,6 @@ defaults:
 
 library:
   source-dirs: lib
-  generated-other-modules:
-    - Paths_incipit
   dependencies:
     - name: base
       version: '>= 4 && < 5'
@@ -21,11 +19,15 @@ library:
     - incipit-base
     - polysemy >= 1.6
     - polysemy-conc >= 0.5
-    - polysemy-log >= 0.4
-    - polysemy-resume >= 0.2
-    - polysemy-time >= 0.2.0.3
+    - polysemy-log >= 0.5
+    - polysemy-resume >= 0.3
+    - polysemy-time >= 0.3
   reexported-modules:
     - Polysemy.Conc
     - Polysemy.Log
     - Polysemy.Resume
     - Polysemy.Time
+  when:
+    condition: false
+    generated-other-modules:
+      - Paths_incipit
