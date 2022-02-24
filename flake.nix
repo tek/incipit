@@ -8,9 +8,9 @@
   let
 
     all = { hackage, override, ... }: {
-      polysemy = hackage "1.7.1.0" "0qwli1kx3hk68hqsgw65mk81bx0djw1wlk17v8ggym7mf3lailyc";
+      polysemy = hackage "1.6.0.0" "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
       polysemy-conc = hackage "0.6.0.0" "16b20nlij227pmd2qxq5ad9fr6496y0ammmw2y95x66dz85c5yg4";
-      polysemy-plugin = hackage "0.4.1.0" "117g92l1ppsqd3w0rqjrxfk0lx6yndd54rpymgxljilnv43zg29s";
+      polysemy-plugin = hackage "0.4.0.0" "0pah1a8h8ckbv2fq20hrikrd1p5a3bdxr03npkyixc6mv5k1rmck";
       polysemy-log = hackage "0.5.0.0" "0qzgi6mi4is059lb815slzkc95xd2f9ndpfhrb7nh7czlm40pzcn";
       polysemy-resume = hackage "0.3.0.0" "0kv8x41cxrdwxh7xw8vrywl7sgjkigl84xl7gv038gijh7pvd358";
       polysemy-test = hackage "0.4.0.1" "038n31xxid72vrckr3afgkvbsvqhf9q4b912agg24ppjzckq2s15";
