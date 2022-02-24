@@ -19,7 +19,7 @@ module Incipit (
 ) where
 
 import qualified Control.Exception as Base
-import Polysemy
+import Polysemy hiding (run)
 import Polysemy.Async
 import Polysemy.AtomicState
 import Polysemy.Error
