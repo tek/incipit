@@ -24,6 +24,8 @@ library:
     - polysemy-time >= 0.3
   reexported-modules:
     - Polysemy.Conc
+    - Polysemy.Conc.Queue
+    - Polysemy.Conc.Sync
     - Polysemy.Log
     - Polysemy.Resume
     - Polysemy.Time

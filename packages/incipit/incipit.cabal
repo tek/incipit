@@ -27,9 +27,17 @@ source-repository head
 
 library
   exposed-modules:
+      Conc
       Incipit
+      Log
+      Prelude
+      Queue
+      Sync
+      Time
   reexported-modules:
       Polysemy.Conc
+    , Polysemy.Conc.Queue
+    , Polysemy.Conc.Sync
     , Polysemy.Log
     , Polysemy.Resume
     , Polysemy.Time

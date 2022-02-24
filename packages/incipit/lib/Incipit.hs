@@ -1,12 +1,30 @@
+-- |A Prelude for Polysemy projects, reexporting names and modules from several basic libraries.
 module Incipit (
   module IncipitCore,
-  module Polysemy,
+  module Polysemy.Conc,
   module Polysemy.Resume,
   send,
 ) where
 
-import qualified Control.Exception as Base
-import Control.Exception (SomeException)
 import IncipitCore
-import Polysemy
+import Polysemy.Conc (
+  EventConsumer,
+  Events,
+  Interrupt,
+  Mask,
+  Queue,
+  QueueResult,
+  Race,
+  Scoped,
+  ScopedSync,
+  Sync,
+  UninterruptipleMask,
+  consume,
+  publish,
+  runConc,
+  scoped,
+  subscribe,
+  )
+import Polysemy.Log (DataLog, Log)
 import Polysemy.Resume
+import Polysemy.Time (Time, TimeUnit)
