@@ -1,15 +1,19 @@
 # About
 
-This repository contains three Haskell packages that provide `Prelude` modules optimized for projects that heavily use [Polysemy].
-The purpose of each package is:
+This Haskell library provides a `Prelude` for [Polysemy] libraries, building upon [incipit-base] and exporting most of
+Polysemy's core modules as well as a number of basic libraries:
 
-* `incipit-base`: Exports from `base`, plus some additional utilities
-* `incipit-core`: Exports from Polysemy proper
-* `incipit`: Additional exports from `polysemy-log`, `polysemy-time`, `polysemy-conc`, `polysemy-resume`
+* [polysemy-conc](https://hackage.haskell.org/package/polysemy-conc)
+* [polysemy-time](https://hackage.haskell.org/package/polysemy-log)
+* [polysemy-log](https://hackage.haskell.org/package/polysemy-time)
+* [polysemy-resume](https://hackage.haskell.org/package/polysemy-resume)
+
+For a minimal variant that only exports Polysemy, consider [incipit-core].
+The two repositories are separated due to Cabal dependency cycles.
 
 # Usage
 
-Both `incipit` and `incipit-core` export `Prelude`, so in order to use them you only have to hide `Prelude` from `base`:
+`incipit` exports `Prelude`, so in order to use it you only have to hide `Prelude` from `base`:
 
 For `hpack`:
 ```yaml
@@ -59,4 +63,6 @@ projectName =
   "spaceship"
 ```
 
-[Polysemy]: https://github.com/polysemy-research/polysemy
+[incipit-base]: https://hackage.haskell.org/package/incipit-base
+[incipit-core]: https://hackage.haskell.org/package/incipit-core
+[Polysemy]: https://hackage.haskell.org/package/polysemy

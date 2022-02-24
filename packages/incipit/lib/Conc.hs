@@ -1,3 +1,4 @@
+-- |Reexport with a shorter module name.
 module Conc (
   module Polysemy.Conc,
   module Polysemy.Conc.Async,

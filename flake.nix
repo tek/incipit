@@ -7,6 +7,8 @@
   let
 
     all = { hackage, override, ... }: {
+      incipit-base = hackage "0.1.0.1" "0bcygln28zhrp0jqsm1z8p45k7faas5yamwddz2narsgpkzirx4y";
+      incipit-core = hackage "0.1.0.1" "1bdkw0q4db3k73i3jjhil96p3rz3gw7mq9jcpcphamld72f4f5ni";
       polysemy = hackage "1.6.0.0" "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
       polysemy-conc = hackage "0.6.0.0" "16b20nlij227pmd2qxq5ad9fr6496y0ammmw2y95x66dz85c5yg4";
       polysemy-plugin = hackage "0.4.1.0" "117g92l1ppsqd3w0rqjrxfk0lx6yndd54rpymgxljilnv43zg29s";
@@ -27,8 +29,6 @@
     overrides = { inherit all ghc921; };
     packages = {
       incipit = ./packages/incipit;
-      incipit-base = ./packages/incipit-base;
-      incipit-core = ./packages/incipit-core;
     };
     main = "incipit";
     hackage.versionFile = "ops/hpack/shared/meta.yaml";

@@ -16,8 +16,6 @@ library:
       mixin:
         - hiding (Prelude, Incipit)
         - (Incipit as IncipitCore)
-    - incipit-base
-    - polysemy >= 1.6
     - polysemy-conc >= 0.5
     - polysemy-log >= 0.5
     - polysemy-resume >= 0.3

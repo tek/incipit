@@ -2,8 +2,9 @@
 module Incipit (
   module IncipitCore,
   module Polysemy.Conc,
+  module Polysemy.Log,
   module Polysemy.Resume,
-  send,
+  module Polysemy.Time,
 ) where
 
 import IncipitCore

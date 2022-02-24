@@ -1,3 +1,5 @@
+# About
+
 This library provides a `Prelude` for [Polysemy] libraries, building upon [incipit-base] and exporting most of
 Polysemy's core modules as well as a number of basic libraries:
 
