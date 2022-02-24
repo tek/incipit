@@ -2,14 +2,13 @@
   description = "A Prelude for Polysemy";
 
   inputs.hix.url = github:tek/hix;
+  inputs.incipit-core.url = github:tek/incipit-core;
 
-  outputs = { hix, ... }:
+  outputs = { hix, incipit-core, ... }:
   let
 
     all = { hackage, override, ... }: {
-      incipit-base = hackage "0.1.0.2" "1ms7zsz39hnrvw9r1m7r2b1wd937nj7j4gfhvqr7hx01mk5irr1c";
-      incipit-core = hackage "0.1.0.2" "0r15v4lcf3vhj10icljz433cs3kdf1s0sc7pvk29cwjgnq5h683p";
-      polysemy = hackage "1.6.0.0" "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
+      polysemy = hackage "1.7.1.0" "0qwli1kx3hk68hqsgw65mk81bx0djw1wlk17v8ggym7mf3lailyc";
       polysemy-conc = hackage "0.6.0.0" "16b20nlij227pmd2qxq5ad9fr6496y0ammmw2y95x66dz85c5yg4";
       polysemy-plugin = hackage "0.4.1.0" "117g92l1ppsqd3w0rqjrxfk0lx6yndd54rpymgxljilnv43zg29s";
       polysemy-log = hackage "0.5.0.0" "0qzgi6mi4is059lb815slzkc95xd2f9ndpfhrb7nh7czlm40pzcn";
@@ -26,8 +25,9 @@
 
   in hix.lib.flake {
     base = ./.;
-    overrides = { inherit all ghc921; };
     packages.incipit = ./packages/incipit;
+    overrides = { inherit all ghc921; };
+    deps = [incipit-core];
     hackage.versionFile = "ops/hpack/shared/meta.yaml";
   };
 }
