@@ -129,11 +129,11 @@
         "hix": "hix_2"
       },
       "locked": {
-        "lastModified": 1645717717,
-        "narHash": "sha256-pf/iYWE9enU3Y/RvpBVWKeQefrv/s1Sb0hhgdAHF/UM=",
+        "lastModified": 1645741222,
+        "narHash": "sha256-GSqF6oTjACNvcTPwhPO8LQuHAzcsI9c5MiNinqNdhTg=",
         "owner": "tek",
         "repo": "incipit-core",
-        "rev": "26169a3c661f02c21a8a816db290a3c4d19acd73",
+        "rev": "2661a602a69cc80172b2851a6b084a16ec1ce214",
         "type": "github"
       },
       "original": {
