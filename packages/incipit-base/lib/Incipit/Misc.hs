@@ -1,6 +1,8 @@
 -- |Misc combinators.
 module Incipit.Misc where
 
+import qualified Data.Foldable as Foldable
+
 import Incipit.Base
 
 -- |Convenience alias for @pure ()@.
@@ -41,3 +43,15 @@ ifM ::
 ifM condM onTrue onFalse =
   condM >>= \ cond -> if cond then onTrue else onFalse
 {-# inline ifM #-}
+
+-- |Default to using the strict version since the lazy one is so controversial.
+foldl ::
+  ∀ b t a .
+  Foldable t =>
+  (b -> a -> b) ->
+  b ->
+  t a ->
+  b
+foldl =
+  Foldable.foldl'
+{-# inline foldl #-}

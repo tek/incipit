@@ -89,7 +89,7 @@ import Data.Coerce (Coercible, coerce)
 import Data.Either
 import Data.Eq (Eq (..))
 import Data.Foldable (
-  Foldable (..),
+  Foldable (fold, foldMap, foldMap', foldr, foldr', foldl', foldr1, foldl1, toList, null, length, elem, maximum, minimum, sum, product),
   all,
   and,
   any,
