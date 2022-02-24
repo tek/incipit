@@ -22,6 +22,32 @@ library:
     - polysemy-resume >= 0.3
     - polysemy-time >= 0.3
   reexported-modules:
+    - Control.Concurrent.STM
+    - Control.Concurrent.STM.TArray
+    - Control.Concurrent.STM.TBQueue
+    - Control.Concurrent.STM.TChan
+    - Control.Concurrent.STM.TMVar
+    - Control.Concurrent.STM.TQueue
+    - Control.Concurrent.STM.TSem
+    - Control.Concurrent.STM.TVar
+    - Control.Monad.STM
+    - Data.ByteString
+    - Data.ByteString.Builder
+    - Data.ByteString.Lazy
+    - Data.ByteString.Short
+    - Data.IntMap.Lazy
+    - Data.IntMap.Strict
+    - Data.IntSet
+    - Data.Map.Lazy
+    - Data.Map.Strict
+    - Data.Sequence
+    - Data.Set
+    - Data.Text
+    - Data.Text.IO
+    - Data.Text.Lazy
+    - Data.Text.Lazy.IO
+    - Data.Text.Read
+    - Data.Tree
     - Polysemy.Conc
     - Polysemy.Conc.Queue
     - Polysemy.Conc.Sync
