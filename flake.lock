@@ -501,11 +501,11 @@
         "hix": "hix_2"
       },
       "locked": {
-        "lastModified": 1645813272,
-        "narHash": "sha256-6xGbwx2tcVabhjv2vxDZpzBiAcNKCwKncTdz/u/fzxQ=",
+        "lastModified": 1645816954,
+        "narHash": "sha256-Qk6n5pYacLu6RBQCdqf8evdAYw6rkECbB7yMXSy1dP8=",
         "owner": "tek",
         "repo": "incipit-core",
-        "rev": "4b71cede3d6be193921fac3d8221c5f98d47a7bd",
+        "rev": "1ca184e31b91c33458eee3410ee7317d36ffff18",
         "type": "github"
       },
       "original": {
