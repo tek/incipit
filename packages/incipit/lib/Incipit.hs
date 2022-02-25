@@ -19,7 +19,7 @@ import Polysemy.Conc (
   Scoped,
   ScopedSync,
   Sync,
-  UninterruptipleMask,
+  UninterruptibleMask,
   consume,
   publish,
   runConc,
