@@ -8,6 +8,7 @@
 
   outputs = { hix, incipit-core, polysemy-resume, polysemy-conc, ... }:
   let
+    inherit (polysemy-conc.inputs) polysemy-time;
 
     all = { hackage, override, source, ... }: {
       polysemy = hackage "1.6.0.0" "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
@@ -16,7 +17,7 @@
       polysemy-log = hackage "0.5.0.0" "0qzgi6mi4is059lb815slzkc95xd2f9ndpfhrb7nh7czlm40pzcn";
       polysemy-resume = source.package polysemy-resume "resume";
       polysemy-test = hackage "0.4.0.1" "038n31xxid72vrckr3afgkvbsvqhf9q4b912agg24ppjzckq2s15";
-      polysemy-time = hackage "0.3.0.0" "0mgiq70b35q7ymfwvb8fv291l3f8v7k0z7w6909h922d6jgl4jgp";
+      polysemy-time = source.package polysemy-time "time";
     };
 
     ghc921 = { hackage, ... }: {
