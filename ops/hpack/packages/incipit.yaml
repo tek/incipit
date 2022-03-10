@@ -18,7 +18,7 @@ library:
         - hiding (Prelude, Incipit)
         - (Incipit as IncipitCore)
     - polysemy-conc >= 0.7
-    - polysemy-log >= 0.6
+    - polysemy-log >= 0.6.0.1
     - polysemy-resume >= 0.4
     - polysemy-time >= 0.4
   reexported-modules:
