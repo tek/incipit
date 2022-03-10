@@ -2,36 +2,27 @@
   description = "A Prelude for Polysemy";
 
   inputs.hix.url = github:tek/hix;
-  inputs.incipit-core.url = github:tek/incipit-core;
-  inputs.polysemy-conc.url = github:tek/polysemy-conc;
-  inputs.polysemy-resume.url = github:tek/polysemy-resume;
+  inputs.polysemy-log.url = github:tek/polysemy-log;
 
-  outputs = { hix, incipit-core, polysemy-resume, polysemy-conc, ... }:
+  outputs = { hix, polysemy-log, ... }:
   let
-    inherit (polysemy-conc.inputs) polysemy-time;
-
-    all = { hackage, override, source, ... }: {
+    all = { hackage, ... }: {
+      incipit-base = hackage "0.2.0.0" "12979prkjk1kr1556mwsgf1v04rzd67xg68x6q9pnvm41pxbvk5w";
+      incipit-core = hackage "0.2.0.0" "1v4xrqwcylbk32b6hzl6i7k0964varw2iy73s7mkjxpxpdg432ci";
       polysemy = hackage "1.6.0.0" "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
-      polysemy-conc = source.package polysemy-conc "conc";
+      polysemy-conc = hackage "0.7.0.0" "1nin6k5vcpj9lll9ravk42rpbdymrjaawvzbdc8b2bivf39d2dfj";
       polysemy-plugin = hackage "0.4.0.0" "0pah1a8h8ckbv2fq20hrikrd1p5a3bdxr03npkyixc6mv5k1rmck";
-      polysemy-log = hackage "0.5.0.0" "0qzgi6mi4is059lb815slzkc95xd2f9ndpfhrb7nh7czlm40pzcn";
-      polysemy-resume = source.package polysemy-resume "resume";
-      polysemy-test = hackage "0.4.0.1" "038n31xxid72vrckr3afgkvbsvqhf9q4b912agg24ppjzckq2s15";
-      polysemy-time = source.package polysemy-time "time";
-    };
-
-    ghc921 = { hackage, ... }: {
-      path = hackage "0.9.2" "1dp45vvx7y78lc0cvd0fp1s5vmj85ywi2b6gag67wkfgsd4a4zpz";
-      polysemy = hackage "1.7.1.0" "0qwli1kx3hk68hqsgw65mk81bx0djw1wlk17v8ggym7mf3lailyc";
-      polysemy-plugin = hackage "0.4.3.0" "1r7j1ffsd6z2q2fgpg78brl2gb0dg8r5ywfiwdrsjd2fxkinjcg1";
-      type-errors = hackage "0.2.0.0" "19km8k3g5gn69vvpq0qi0wzsrcjz5k6kb6qjrccq7za39z9slr2z";
+      polysemy-log = hackage "0.6.0.1" "18p5sl304nf7pf6b8bfvbkwp1jsms24ym9hh3dmsppxk38fljixj";
+      polysemy-resume = hackage "0.4.0.0" "1a2l2k9jjgm9q4k68rfqdizcavwwr856ql5ld40g9k0rvkrq5wn1";
+      polysemy-test = hackage "0.5.0.0" "0lzbf7bfmcima8ib4hv68bjciy2n5s4x493g0a5cmdjj6pcg2d2k";
+      polysemy-time = hackage "0.4.0.0" "1dddg61d8djfwlc85bz99vwm23621cdjwxd1llcc4ng3afgx5bg9";
     };
 
   in hix.lib.flake {
     base = ./.;
     packages.incipit = ./packages/incipit;
-    overrides = { inherit all ghc921; };
-    deps = [incipit-core];
+    overrides = { inherit all; };
+    deps = [polysemy-log];
     hackage.versionFile = "ops/hpack/shared/meta.yaml";
   };
 }

@@ -13,14 +13,14 @@ library:
       mixin:
         hiding (Prelude)
     - name: incipit-core
-      version: == 0.1.0.3
+      version: == 0.2.0.0
       mixin:
         - hiding (Prelude, Incipit)
         - (Incipit as IncipitCore)
-    - polysemy-conc >= 0.5
-    - polysemy-log >= 0.5
-    - polysemy-resume >= 0.3
-    - polysemy-time >= 0.3
+    - polysemy-conc >= 0.7
+    - polysemy-log >= 0.6
+    - polysemy-resume >= 0.4
+    - polysemy-time >= 0.4
   reexported-modules:
     - Control.Concurrent.STM
     - Control.Concurrent.STM.TArray

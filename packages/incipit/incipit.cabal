@@ -132,11 +132,11 @@ library
   ghc-options: -Wall -Wredundant-constraints -Wincomplete-uni-patterns -Wmissing-deriving-strategies -Widentities
   build-depends:
       base ==4.*
-    , incipit-core ==0.1.0.3
-    , polysemy-conc >=0.5
-    , polysemy-log >=0.5
-    , polysemy-resume >=0.3
-    , polysemy-time >=0.3
+    , incipit-core ==0.2.0.0
+    , polysemy-conc >=0.7
+    , polysemy-log >=0.6
+    , polysemy-resume >=0.4
+    , polysemy-time >=0.4
   mixins:
       base hiding (Prelude)
     , incipit-core hiding (Prelude, Incipit)
