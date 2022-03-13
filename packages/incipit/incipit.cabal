@@ -29,6 +29,7 @@ library
   exposed-modules:
       Conc
       Incipit
+      Incipit.Full
       Log
       Prelude
       Queue
