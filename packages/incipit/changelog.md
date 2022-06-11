@@ -1,4 +1,4 @@
-# Unreleased
+# 0.3.0.0
 
 * Remove module exports for `Prelude` to avoid a Stack bug.
 
