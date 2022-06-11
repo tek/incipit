@@ -13,7 +13,8 @@ The two repositories are separated due to Cabal dependency cycles.
 
 # Usage
 
-`incipit` exports `Prelude`, so in order to use it you only have to hide `Prelude` from `base`:
+Using a custom `Prelude` requires the use of Cabal mixins to hide the module from `base` and replace it with
+`Incipit`:
 
 For `hpack`:
 ```yaml
@@ -22,21 +23,27 @@ dependencies:
     version: '>= 4 && < 5'
     mixin:
       - hiding (Prelude)
-  - incipit >= 0.1
+  - name: incipit
+    version: '>= 0.3'
+    mixin:
+      - (Incipit as Prelude)
+      - hiding (Incipit)
 ```
 
 For `cabal`:
 ```cabal
 build-depends:
-    base >=4 && <5, incipit >= 0.1
+    base >=4 && <5, incipit >= 0.3
 mixins:
-    base hiding (Prelude)
+    base hiding (Prelude), incipit (Incipit as Prelude), incipit hiding (Incipit)
 ```
+
+`incipit` used to export `Prelude`, but
+[stack can't deal with that](https://github.com/commercialhaskell/stack/issues/5414).
 
 # Custom Prelude
 
-In order to extend `incipit` with a local `Prelude`, the module `Incipit` has to be reexported and `incipit`'s
-`Prelude` needs to be hidden:
+In order to extend `incipit` with a local `Prelude`, the module `Incipit` has to be reexported:
 
 ```yaml
 dependencies:
@@ -45,7 +52,7 @@ dependencies:
     mixin:
       - hiding (Prelude)
   - name: incipit
-    version: >= 0.1
+    version: >= 0.3
     mixin:
       - hiding (Prelude)
 ```
