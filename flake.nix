@@ -3,8 +3,8 @@
 
   inputs = {
     hix.url = github:tek/hix;
-    polysemy-log.url = path:/home/tek/code/tek/haskell/polysemy-log;
-    polysemy-conc.url = path:/home/tek/code/tek/haskell/polysemy-conc;
+    polysemy-log.url = github:tek/polysemy-log;
+    polysemy-conc.url = github:tek/polysemy-conc;
   };
 
   outputs = { hix, polysemy-conc, polysemy-log, ... }:
