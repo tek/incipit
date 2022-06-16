@@ -3,8 +3,8 @@
 
   inputs = {
     hix.url = github:tek/hix;
-    polysemy-log.url = github:tek/polysemy-log;
-    polysemy-conc.url = github:tek/polysemy-conc;
+    polysemy-log.url = github:tek/polysemy-log/v0.7.0.0;
+    polysemy-conc.url = github:tek/polysemy-conc/v0.9.0.0;
   };
 
   outputs = { hix, polysemy-conc, polysemy-log, ... }:
