@@ -17,6 +17,7 @@ import Polysemy.Conc (
   QueueResult,
   Race,
   Scoped,
+  Scoped_,
   ScopedSync,
   Sync,
   UninterruptibleMask,
@@ -24,6 +25,7 @@ import Polysemy.Conc (
   publish,
   runConc,
   scoped,
+  scoped_,
   subscribe,
   )
 import Polysemy.Log (DataLog, Log)
