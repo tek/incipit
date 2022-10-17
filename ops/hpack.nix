@@ -97,7 +97,7 @@ in {
       dependencies = [
         "base >= 4.13 && < 4.17"
         "incipit-core >= 0.3"
-        "polysemy-conc >= 0.9"
+        "polysemy-conc >= 0.10"
         "polysemy-log >= 0.7.2.0"
         "polysemy-resume >= 0.5"
         "polysemy-time >= 0.5"
