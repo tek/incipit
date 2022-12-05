@@ -3,18 +3,18 @@
 
   inputs = {
     hix.url = git+https://git.tryp.io/tek/hix;
-    polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log?tag=v0.7.2.0";
-    polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc?tag=v0.10.0.0";
+    polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log?tag=v0.8.0.0";
+    polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc?tag=v0.11.0.0";
   };
 
   outputs = { hix, polysemy-conc, polysemy-log, ... }:
   let
     all = { hackage, source, ... }: {
       polysemy-chronos = hackage "0.5.1.0" "14rwrhad4fvmxdxyk4qyk05fjlxg0b9bsqcfci1yb58v4fhi432h";
-      polysemy-conc = hackage "0.10.0.0" "1l6lbkv3z5i9sr0xiygvcabn769lafphp51mx347xpq45qsfxilc";
-      polysemy-log = hackage "0.7.2.0" "1dpgcvrjgpdpynnx804sdj4kpf06lvq0bqxqc79lazc2q82vaj6s";
-      polysemy-plugin = hackage "0.4.1.0" "117g92l1ppsqd3w0rqjrxfk0lx6yndd54rpymgxljilnv43zg29s";
-      polysemy-process = hackage "0.10.0.0" "12dgacx7wsv503l00plj23qaz87zyphnhi302c7ar0hr48nmxskn";
+      polysemy-conc = hackage "0.11.0.0" "1gnxha1r8fwv164j6jwhw6zszknrc71vqyb03xd03c7hp2hgs46v";
+      polysemy-log = hackage "0.8.0.0" "18scnskv9aj9yc3g64w4mwqza6zq5gvmwaswxrwa7vf8jvd5vxvi";
+      polysemy-plugin = hackage "0.4.3.1" "0kjwxal9m3lvri35vliwfwcgcj9fkp50ybv4kbgvsjj8srh0pyfj";
+      polysemy-process = hackage "0.11.0.0" "065s582g8axicsc5zxmdhc5xa55dppn8q3q17kjd7bclih9wdwjv";
     };
 
   in hix.lib.pro ({ config, lib, ... }: {
