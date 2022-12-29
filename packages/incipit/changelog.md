@@ -1,3 +1,7 @@
+# 0.6.0.0
+
+* Support GHC 9.4 and Polysemy 1.9.
+
 # 0.3.0.0
 
 * Remove module exports for `Prelude` to avoid a Stack bug.

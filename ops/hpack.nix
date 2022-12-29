@@ -34,7 +34,9 @@ let
     copyright = "2022 Torsten Schmits";
     category = "Prelude";
     build-type = "Simple";
-    github = "tek/incipit";
+    git = "https://git.tryp.io/tek/incipit";
+    homepage = "https://git.tryp.io/tek/incipit";
+    bug-reports = "https://github.com/tek/incipit/issues";
   };
 
   options.ghc-options = [
@@ -95,12 +97,12 @@ in {
     synopsis = "A Prelude for Polysemy";
     library = {
       dependencies = [
-        "base >= 4.13 && < 4.17"
-        "incipit-core ^>= 0.3"
-        "polysemy-conc ^>= 0.11"
-        "polysemy-log ^>= 0.8"
-        "polysemy-resume ^>= 0.5"
-        "polysemy-time ^>= 0.5"
+        "base >= 4.13 && < 4.18"
+        "incipit-core ^>= 0.4"
+        "polysemy-conc ^>= 0.12"
+        "polysemy-log ^>= 0.9"
+        "polysemy-resume ^>= 0.7"
+        "polysemy-time ^>= 0.6"
       ];
       inherit reexported-modules;
     };
