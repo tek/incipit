@@ -98,7 +98,7 @@ in {
     library = {
       dependencies = [
         "base >= 4.13 && < 4.18"
-        "incipit-core ^>= 0.4.1"
+        "incipit-core ^>= 0.5"
         "polysemy-conc ^>= 0.12"
         "polysemy-log ^>= 0.9"
         "polysemy-resume ^>= 0.7"
