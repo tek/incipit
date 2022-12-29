@@ -16,16 +16,12 @@ import Polysemy.Conc (
   Queue,
   QueueResult,
   Race,
-  Scoped,
-  Scoped_,
   ScopedSync,
   Sync,
   UninterruptibleMask,
   consume,
   publish,
   runConc,
-  scoped,
-  scoped_,
   subscribe,
   )
 import Polysemy.Log (DataLog, Log)

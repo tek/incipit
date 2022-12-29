@@ -858,17 +858,17 @@
         "polysemy-time": "polysemy-time"
       },
       "locked": {
-        "lastModified": 1672273299,
-        "narHash": "sha256-IUCAZv9pvXTa1N+aV6jdIPjJdmUP6GaT8WawImeWJmQ=",
+        "lastModified": 1672281056,
+        "narHash": "sha256-OVrtCwRJJtGcwV/pHeDSBSe1czww8pGcKACBNm4D4r4=",
         "ref": "refs/heads/main",
-        "rev": "cf924009243ad7d85db45065451e1d0e7dc76fb5",
-        "revCount": 238,
+        "rev": "2854fe61da7d07d53b04aa31c26a3a4dad2c021e",
+        "revCount": 240,
         "type": "git",
-        "url": "https://git.tryp.io/tek/polysemy-conc?tag=v0.12.0.0"
+        "url": "https://git.tryp.io/tek/polysemy-conc?tag=v0.12.1.0"
       },
       "original": {
         "type": "git",
-        "url": "https://git.tryp.io/tek/polysemy-conc?tag=v0.12.0.0"
+        "url": "https://git.tryp.io/tek/polysemy-conc?tag=v0.12.1.0"
       }
     },
     "polysemy-conc_2": {
