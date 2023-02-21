@@ -53,6 +53,7 @@ let
     description = "See https://hackage.haskell.org/package/${name}/docs/${doc}.html";
     library.source-dirs = "lib";
     default-extensions = config.ghci.extensions;
+    extra-source-files = ["changelog.md" "readme.md"];
   };
 
   reexported-modules = [
@@ -106,6 +107,31 @@ in {
       ];
       inherit reexported-modules;
     };
+  };
+
+  zeugma = merge (project "zeugma" "Zeugma") {
+    synopsis = "Polysemy effects for testing";
+    library = {
+        dependencies = [
+          "chronos"
+          "hedgehog"
+          ("incipit == " + import ./version.nix)
+          "polysemy ^>= 1.9"
+          "polysemy-chronos ^>= 0.6"
+          "polysemy-test ^>= 0.7"
+          "tasty ^>= 1.4"
+          "tasty-expected-failure ^>= 0.12"
+          "tasty-hedgehog >= 1.3 && < 1.5"
+          "unix"
+        ];
+        reexported-modules = [
+          "Hedgehog"
+          "Polysemy.Test"
+          "Test.Tasty"
+          "Test.Tasty.ExpectedFailure"
+          "Test.Tasty.Hedgehog"
+        ];
+      };
   };
 
 }

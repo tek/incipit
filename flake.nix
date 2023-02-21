@@ -2,12 +2,13 @@
   description = "A Prelude for Polysemy";
 
   inputs = {
-    hix.url = git+https://git.tryp.io/tek/hix;
+    hix.url = "git+https://git.tryp.io/tek/hix";
+    hls.url = "github:haskell/haskell-language-server?ref=1.9.0.0";
     polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log?tag=v0.9.0.0";
     polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc?tag=v0.12.1.0";
   };
 
-  outputs = { hix, polysemy-conc, polysemy-log, ... }:
+  outputs = { hix, hls, polysemy-conc, polysemy-log, ... }:
   let
     all = { hackage, source, ... }: {
       incipit-base = hackage "0.5.0.0" "02fdppamn00m94xqi4zhm6sl1ndg6lhn24m74w24pq84h44mynl6";
@@ -20,11 +21,16 @@
     };
 
   in hix.lib.pro ({ config, lib, ... }: {
-    packages.incipit = ./packages/incipit;
-    devGhc.compiler = "ghc902";
+    packages = {
+      incipit = ./packages/incipit;
+      zeugma = ./packages/zeugma;
+    };
+    main = "zeugma";
+    devGhc.compiler = "ghc925";
     overrides = { inherit all; };
     deps = [polysemy-conc polysemy-log];
     hackage.versionFile = "ops/version.nix";
     hpack.packages = import ./ops/hpack.nix { inherit config lib; };
+    shell.hls.package = hls.packages.${config.system}.haskell-language-server-925;
   });
 }
