@@ -29,6 +29,7 @@ library
   exposed-modules:
       Zeugma
       Zeugma.Run
+      Zeugma.TestError
   reexported-modules:
       Hedgehog
     , Polysemy.Test

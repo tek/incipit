@@ -1,7 +1,8 @@
 {-# language NoImplicitPrelude #-}
 
--- | Test runners for polysemy-conc programs using hedgehog.
+-- | Utilities for Incipit programs using hedgehog.
 module Zeugma (
+  -- * Test runners
   runTest,
   runTestDebug,
   runTestTrace,
@@ -11,6 +12,12 @@ module Zeugma (
   runTestFrozenTrace,
   runTestFrozenLevel,
   testTime,
+
+  -- * Resumable to TestError conversion
+  stopTest,
+  resumeTest,
+
+  -- * Reexports of ubiquitous names
   unitTest,
   unitTestTimes,
   defaultMain,
@@ -18,10 +25,14 @@ module Zeugma (
   TestTree,
   Failure,
   TestStack,
+  TestError (TestError),
+  -- TODO not released yet
+  -- testError,
 ) where
 
 import Hedgehog.Internal.Property (Failure)
 import Polysemy.Test (unitTest, unitTestTimes)
+import Polysemy.Test.Data.TestError (TestError (TestError))
 import Test.Tasty (TestTree, defaultMain, testGroup)
 
 import Zeugma.Run (
@@ -36,3 +47,4 @@ import Zeugma.Run (
   runTestTrace,
   testTime,
   )
+import Zeugma.TestError (resumeTest, stopTest)
