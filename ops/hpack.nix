@@ -122,7 +122,6 @@ in {
           "tasty ^>= 1.4"
           "tasty-expected-failure ^>= 0.12"
           "tasty-hedgehog >= 1.3 && < 1.5"
-          "unix"
         ];
         reexported-modules = [
           "Hedgehog"
