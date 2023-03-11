@@ -26,3 +26,13 @@ resumeTest ::
   InterpreterFor eff r
 resumeTest ma =
   withFrozenCallStack (resumeHoistError @err (TestError . show) ma)
+
+-- | Interpret 'Error' converting the error to 'TestError', with the call site's stack.
+errorTest ::
+  ∀ err r .
+  Show err =>
+  HasCallStack =>
+  Member (Error TestError) r =>
+  InterpreterFor (Error err) r
+errorTest ma =
+  withFrozenCallStack (mapError (TestError . show) ma)

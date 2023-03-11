@@ -13,9 +13,10 @@ module Zeugma (
   runTestFrozenLevel,
   testTime,
 
-  -- * Resumable to TestError conversion
+  -- * Resumable and 'Polysemy.Error.Error' to 'Polysemy.Test.TestError' conversion
   stopTest,
   resumeTest,
+  errorTest,
 
   -- * Reexports of ubiquitous names
   unitTest,
@@ -47,4 +48,4 @@ import Zeugma.Run (
   runTestTrace,
   testTime,
   )
-import Zeugma.TestError (resumeTest, stopTest)
+import Zeugma.TestError (errorTest, resumeTest, stopTest)
