@@ -3,34 +3,117 @@
 
   inputs = {
     hix.url = "git+https://git.tryp.io/tek/hix";
-    hls.url = "github:haskell/haskell-language-server?ref=1.9.0.0";
-    polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log?tag=v0.9.0.0";
-    polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc?tag=v0.12.1.0";
+    polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log";
+    polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc";
   };
 
-  outputs = { hix, hls, polysemy-conc, polysemy-log, ... }:
-  let
-    all = { hackage, source, ... }: {
-      incipit-base = hackage "0.5.0.0" "02fdppamn00m94xqi4zhm6sl1ndg6lhn24m74w24pq84h44mynl6";
-      incipit-core = hackage "0.5.0.0" "1pql8s941jb21kvsx5py4ffnilm1ga136npa25ifsh3l7yapci30";
+  outputs = { hix, polysemy-conc, polysemy-log, ... }: hix.lib.pro ({config, ...}: {
+    ghcVersions = ["ghc810" "ghc90" "ghc92" "ghc94"];
+    hackage.versionFile = "ops/version.nix";
+    main = "zeugma";
+    deps = [polysemy-conc polysemy-log];
+
+    overrides = { hackage, source, ... }: {
       polysemy-chronos = hackage "0.6.0.0" "03p4aw3088lnwrghym96zffdyshrpd8r4g3fcx30w1xr64nr7y29";
-      polysemy-conc = hackage "0.12.1.0" "0cm2hkr58fhxr2w5pmq01m66qmd1yfzikjx5v7c0xsk8mdjv9f6g";
       polysemy-log = hackage "0.9.0.0" "0ymgd7lzlgzwi895l4p754qwdy72c1g13b8drn5a970ym7zcklpg";
-      polysemy-plugin = hackage "0.4.4.0" "08ry72bw78fis9iallzw6wsrzxnlmayq2k2yy0j79hpw4sp8knmg";
       polysemy-process = hackage "0.12.1.0" "17hs8grh5ppbdf2vp63flwb0kahyp776jqh4c6c1amwfja4b2avc";
+      polysemy-test = hackage "0.7.0.0" "1m6ncbihr742765rshz6w7dn450f3d2ip6ci3qah27lnz7yrwmp6";
     };
 
-  in hix.lib.pro ({ config, lib, ... }: {
-    packages = {
-      incipit = ./packages/incipit;
-      zeugma = ./packages/zeugma;
+    cabal = {
+      license = "BSD-2-Clause-Patent";
+      license-file = "LICENSE";
+      author = "Torsten Schmits";
+      meta = {
+        maintainer = "hackage@tryp.io";
+        category = "Prelude";
+        github = "tek/incipit";
+        extra-source-files = ["readme.md" "changelog.md"];
+      };
     };
-    main = "zeugma";
-    devGhc.compiler = "ghc925";
-    overrides = { inherit all; };
-    deps = [polysemy-conc polysemy-log];
-    hackage.versionFile = "ops/version.nix";
-    hpack.packages = import ./ops/hpack.nix { inherit config lib; };
-    shell.hls.package = hls.packages.${config.system}.haskell-language-server-925;
+
+    packages.incipit = {
+      src = ./packages/incipit;
+
+      cabal.meta.synopsis = "A Prelude for Polysemy";
+
+      library = {
+        enable = true;
+        dependencies = [
+          "base >= 4.13 && < 4.19"
+          "incipit-core ^>= 0.5"
+          "polysemy-conc ^>= 0.12"
+          "polysemy-log ^>= 0.9"
+          "polysemy-resume ^>= 0.7"
+          "polysemy-time ^>= 0.6"
+        ];
+        component.reexported-modules = [
+          "Control.Concurrent.STM"
+          "Control.Concurrent.STM.TArray"
+          "Control.Concurrent.STM.TBQueue"
+          "Control.Concurrent.STM.TChan"
+          "Control.Concurrent.STM.TMVar"
+          "Control.Concurrent.STM.TQueue"
+          "Control.Concurrent.STM.TSem"
+          "Control.Concurrent.STM.TVar"
+          "Control.Monad.STM"
+          "Data.ByteString"
+          "Data.ByteString.Builder"
+          "Data.ByteString.Lazy"
+          "Data.ByteString.Short"
+          "Data.IntMap.Lazy"
+          "Data.IntMap.Strict"
+          "Data.IntSet"
+          "Data.Map.Lazy"
+          "Data.Map.Strict"
+          "Data.Sequence"
+          "Data.Set"
+          "Data.Text"
+          "Data.Text.IO"
+          "Data.Text.Lazy"
+          "Data.Text.Lazy.Builder"
+          "Data.Text.Lazy.IO"
+          "Data.Text.Read"
+          "Data.Tree"
+          "Polysemy.Conc"
+          "Polysemy.Conc.Queue"
+          "Polysemy.Conc.Sync"
+          "Polysemy.Log"
+          "Polysemy.Resume"
+          "Polysemy.Time"
+        ];
+      };
+
+    };
+
+    packages.zeugma = {
+      src = ./packages/zeugma;
+
+      cabal.meta.synopsis = "Polysemy effects for testing";
+
+      library = {
+        enable = true;
+        dependencies = [
+          "chronos"
+          "hedgehog"
+          config.packages.incipit.dep.exact
+          "polysemy ^>= 1.9"
+          "polysemy-chronos ^>= 0.6"
+          "polysemy-test ^>= 0.7"
+          "tasty ^>= 1.4"
+          "tasty-expected-failure ^>= 0.12"
+          "tasty-hedgehog >= 1.3 && < 1.5"
+        ];
+        component.reexported-modules = [
+          "Hedgehog"
+          "Polysemy.Test"
+          "Test.Tasty"
+          "Test.Tasty.ExpectedFailure"
+          "Test.Tasty.Hedgehog"
+        ];
+      };
+
+    };
+
   });
 }
