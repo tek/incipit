@@ -93,6 +93,7 @@ interpretTestFrozen level =
 
 -- | Run the test stack as a 'TestT' with the specified log level.
 runTestLevel ::
+  HasCallStack =>
   Severity ->
   Sem TestStack a ->
   TestT IO a
@@ -101,6 +102,7 @@ runTestLevel level =
 
 -- | Run the test stack as a 'TestT' with the specified log level, with 'ChronosTime' frozen at 'testTime'.
 runTestFrozenLevel ::
+  HasCallStack =>
   Severity ->
   Sem TestStack a ->
   TestT IO a
@@ -108,31 +110,49 @@ runTestFrozenLevel level =
   runTestAuto . interpretTestFrozen level
 
 -- | Run the test stack as a 'TestT' with a log level of 'Trace'.
-runTestTrace :: Sem TestStack a -> TestT IO a
+runTestTrace ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTestTrace =
   runTestLevel Trace
 
 -- | Run the test stack as a 'TestT' with a log level of 'Debug'.
-runTestDebug :: Sem TestStack a -> TestT IO a
+runTestDebug ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTestDebug =
   runTestLevel Debug
 
 -- | Run the test stack as a 'TestT' with a log level of 'Crit'.
-runTest :: Sem TestStack a -> TestT IO a
+runTest ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTest =
   runTestLevel Crit
 
 -- | Run the test stack as a 'TestT' with a log level of 'Trace' and 'ChronosTime' frozen at 'testTime'.
-runTestFrozenTrace :: Sem TestStack a -> TestT IO a
+runTestFrozenTrace ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTestFrozenTrace =
   runTestFrozenLevel Trace
 
 -- | Run the test stack as a 'TestT' with a log level of 'Debug' and 'ChronosTime' frozen at 'testTime'.
-runTestFrozenDebug :: Sem TestStack a -> TestT IO a
+runTestFrozenDebug ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTestFrozenDebug =
   runTestFrozenLevel Debug
 
 -- | Run the test stack as a 'TestT' with a log level of 'Crit' and 'ChronosTime' frozen at 'testTime'.
-runTestFrozen :: Sem TestStack a -> TestT IO a
+runTestFrozen ::
+  HasCallStack =>
+  Sem TestStack a ->
+  TestT IO a
 runTestFrozen =
   runTestFrozenLevel Crit
