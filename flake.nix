@@ -95,8 +95,8 @@
       library = {
         enable = true;
         dependencies = [
-          "chronos"
-          "hedgehog"
+          "chronos ^>= 1.1"
+          "hedgehog >= 1.1 && < 1.3"
           config.packages.incipit.dep.exact
           "polysemy ^>= 1.9"
           "polysemy-chronos ^>= 0.6"

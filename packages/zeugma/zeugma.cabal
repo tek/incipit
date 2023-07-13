@@ -107,8 +107,8 @@ library
   ghc-options: -Wall -Widentities -Wincomplete-uni-patterns -Wmissing-deriving-strategies -Wredundant-constraints -Wunused-type-patterns -Wunused-packages
   build-depends:
       base ==4.*
-    , chronos
-    , hedgehog
+    , chronos ==1.1.*
+    , hedgehog >=1.1 && <1.3
     , incipit ==0.8.0.0
     , polysemy ==1.9.*
     , polysemy-chronos ==0.6.*
