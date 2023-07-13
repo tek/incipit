@@ -9,7 +9,6 @@
 
   outputs = { hix, polysemy-conc, polysemy-log, ... }: hix.lib.pro ({config, ...}: {
     ghcVersions = ["ghc810" "ghc90" "ghc92" "ghc94"];
-    hackage.versionFile = "ops/version.nix";
     main = "zeugma";
     deps = [polysemy-conc polysemy-log];
 
@@ -34,6 +33,7 @@
 
     packages.incipit = {
       src = ./packages/incipit;
+      versionFile = "ops/version.nix";
 
       cabal.meta.synopsis = "A Prelude for Polysemy";
 
@@ -88,6 +88,7 @@
 
     packages.zeugma = {
       src = ./packages/zeugma;
+      versionFile = "ops/version-zeugma.nix";
 
       cabal.meta.synopsis = "Polysemy effects for testing";
 
