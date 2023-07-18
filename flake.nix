@@ -11,6 +11,7 @@
     ghcVersions = ["ghc810" "ghc90" "ghc92" "ghc94"];
     main = "zeugma";
     deps = [polysemy-conc polysemy-log];
+    gen-overrides.enable = true;
 
     overrides = { hackage, source, ... }: {
       polysemy-chronos = hackage "0.6.0.0" "03p4aw3088lnwrghym96zffdyshrpd8r4g3fcx30w1xr64nr7y29";
