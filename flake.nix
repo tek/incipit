@@ -4,20 +4,18 @@
   inputs = {
     hix.url = "git+https://git.tryp.io/tek/hix";
     polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log";
-    polysemy-conc.url = "git+https://git.tryp.io/tek/polysemy-conc";
   };
 
-  outputs = { hix, polysemy-conc, polysemy-log, ... }: hix.lib.pro ({config, ...}: {
-    ghcVersions = ["ghc810" "ghc90" "ghc92" "ghc94"];
+  outputs = {hix, polysemy-log, ...}: hix.lib.pro ({config, ...}: {
+    ghcVersions = ["ghc92" "ghc94" "ghc96"];
     main = "zeugma";
-    deps = [polysemy-conc polysemy-log];
+    deps = [polysemy-log];
+    compiler = "ghc94";
     gen-overrides.enable = true;
 
-    overrides = { hackage, source, ... }: {
-      polysemy-chronos = hackage "0.6.0.0" "03p4aw3088lnwrghym96zffdyshrpd8r4g3fcx30w1xr64nr7y29";
-      polysemy-log = hackage "0.9.0.0" "0ymgd7lzlgzwi895l4p754qwdy72c1g13b8drn5a970ym7zcklpg";
-      polysemy-process = hackage "0.12.1.0" "17hs8grh5ppbdf2vp63flwb0kahyp776jqh4c6c1amwfja4b2avc";
-      polysemy-test = hackage "0.7.0.0" "1m6ncbihr742765rshz6w7dn450f3d2ip6ci3qah27lnz7yrwmp6";
+    envs.dev.overrides = {hackage, source, ...}: {
+      polysemy-chronos = hackage "0.6.0.1" "0gzbvspkhv2hgw32m0cmil4v9ni61g27py6q9gdz2s3idy6pzi30";
+      polysemy-log = hackage "0.10.0.0" "1p8qzn999jqlbymf0v655gd81nc0dya1jgi86nzcklf28g1hafdr";
     };
 
     cabal = {
@@ -43,9 +41,9 @@
         dependencies = [
           "base >= 4.13 && < 4.19"
           "incipit-core ^>= 0.5"
-          "polysemy-conc ^>= 0.12"
-          "polysemy-log ^>= 0.9"
-          "polysemy-resume ^>= 0.7"
+          "polysemy-conc >= 0.12 && < 0.14"
+          "polysemy-log >= 0.9 && < 0.11"
+          "polysemy-resume >= 0.7 && < 0.9"
           "polysemy-time ^>= 0.6"
         ];
         component.reexported-modules = [
@@ -101,7 +99,7 @@
           config.packages.incipit.dep.exact
           "polysemy ^>= 1.9"
           "polysemy-chronos ^>= 0.6"
-          "polysemy-test ^>= 0.7"
+          "polysemy-test >= 0.7 && < 0.9"
           "tasty ^>= 1.4"
           "tasty-expected-failure ^>= 0.12"
           "tasty-hedgehog >= 1.3 && < 1.5"
