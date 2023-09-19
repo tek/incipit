@@ -13,7 +13,7 @@
     compiler = "ghc94";
     gen-overrides.enable = true;
 
-    envs.dev.overrides = {hackage, source, ...}: {
+    envs.dev.overrides = {hackage, ...}: {
       polysemy-chronos = hackage "0.6.0.1" "0gzbvspkhv2hgw32m0cmil4v9ni61g27py6q9gdz2s3idy6pzi30";
       polysemy-log = hackage "0.10.0.0" "1p8qzn999jqlbymf0v655gd81nc0dya1jgi86nzcklf28g1hafdr";
     };
