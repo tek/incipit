@@ -14,8 +14,9 @@
     gen-overrides.enable = true;
 
     envs.dev.overrides = {hackage, ...}: {
-      polysemy-chronos = hackage "0.6.0.1" "0gzbvspkhv2hgw32m0cmil4v9ni61g27py6q9gdz2s3idy6pzi30";
-      polysemy-log = hackage "0.10.0.0" "1p8qzn999jqlbymf0v655gd81nc0dya1jgi86nzcklf28g1hafdr";
+      polysemy-time = hackage "0.6.0.2" "198x2wimdzk93hz0bq2k7wjibcjvzm38m6fica1jfcbh4p531swp";
+      polysemy-chronos = hackage "0.6.0.2" "1wvjpl2axxhywjj7z1hjg16sxldq0x63md4rzf1mvdn8067mg35s";
+      polysemy-log = hackage "0.10.0.1" "1vwlj7xpr4v4340mx8ylfrn2wikix0lkbhg86bikpkzhhk1w3q7q";
     };
 
     cabal = {
@@ -99,7 +100,7 @@
           config.packages.incipit.dep.exact
           "polysemy ^>= 1.9"
           "polysemy-chronos ^>= 0.6"
-          "polysemy-test >= 0.7 && < 0.9"
+          "polysemy-test >= 0.7 && < 0.10"
           "tasty ^>= 1.4"
           "tasty-expected-failure ^>= 0.12"
           "tasty-hedgehog >= 1.3 && < 1.5"
