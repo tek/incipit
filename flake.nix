@@ -1,23 +1,30 @@
 {
   description = "A Prelude for Polysemy";
 
-  inputs = {
-    hix.url = "git+https://git.tryp.io/tek/hix";
-    polysemy-log.url = "git+https://git.tryp.io/tek/polysemy-log";
-  };
+  inputs.hix.url = "git+https://git.tryp.io/tek/hix";
 
-  outputs = {hix, polysemy-log, ...}: hix.lib.pro ({config, ...}: {
-    ghcVersions = ["ghc92" "ghc94" "ghc96"];
-    main = "zeugma";
-    deps = [polysemy-log];
-    compiler = "ghc94";
-    gen-overrides.enable = true;
-
-    envs.dev.overrides = {hackage, ...}: {
-      polysemy-time = hackage "0.6.0.2" "198x2wimdzk93hz0bq2k7wjibcjvzm38m6fica1jfcbh4p531swp";
-      polysemy-chronos = hackage "0.6.0.2" "1wvjpl2axxhywjj7z1hjg16sxldq0x63md4rzf1mvdn8067mg35s";
-      polysemy-log = hackage "0.10.0.1" "1vwlj7xpr4v4340mx8ylfrn2wikix0lkbhg86bikpkzhhk1w3q7q";
+  outputs = {hix, ...}: hix.lib.pro ({config, ...}: let
+    overrides = {jailbreak, unbreak, ...}: {
+      polysemy-test = jailbreak unbreak;
+      polysemy-conc = jailbreak;
+      polysemy-log = jailbreak;
     };
+  in {
+    ghcVersions = ["ghc94" "ghc96" "ghc98"];
+    compat.versions = ["ghc96"];
+    main = "zeugma";
+    gen-overrides.enable = true;
+    managed = {
+      enable = true;
+      lower.enable = true;
+      envs.solverOverrides = overrides;
+      latest.compiler = "ghc98";
+    };
+
+    inherit overrides;
+
+    envs.latest = { inherit overrides; };
+    envs.lower = { inherit overrides; };
 
     cabal = {
       license = "BSD-2-Clause-Patent";
@@ -40,12 +47,12 @@
       library = {
         enable = true;
         dependencies = [
-          "base >= 4.13 && < 4.19"
-          "incipit-core ^>= 0.5"
-          "polysemy-conc >= 0.12 && < 0.14"
-          "polysemy-log >= 0.9 && < 0.11"
-          "polysemy-resume >= 0.7 && < 0.9"
-          "polysemy-time ^>= 0.6"
+          "base"
+          "incipit-core"
+          "polysemy-conc"
+          "polysemy-log"
+          "polysemy-resume"
+          "polysemy-time"
         ];
         component.reexported-modules = [
           "Control.Concurrent.STM"
@@ -95,15 +102,15 @@
       library = {
         enable = true;
         dependencies = [
-          "chronos ^>= 1.1"
-          "hedgehog >= 1.1 && < 1.3"
+          "chronos"
+          "hedgehog"
           config.packages.incipit.dep.exact
-          "polysemy ^>= 1.9"
-          "polysemy-chronos ^>= 0.6"
-          "polysemy-test >= 0.7 && < 0.10"
-          "tasty ^>= 1.4"
-          "tasty-expected-failure ^>= 0.12"
-          "tasty-hedgehog >= 1.3 && < 1.5"
+          "polysemy"
+          "polysemy-chronos"
+          "polysemy-test"
+          "tasty"
+          "tasty-expected-failure"
+          "tasty-hedgehog"
         ];
         component.reexported-modules = [
           "Hedgehog"
