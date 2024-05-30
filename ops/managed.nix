@@ -3,70 +3,85 @@
     incipit = {
       base = {
         lower = "4.17.2.1";
-        upper = null;
+        upper = "4.20";
       };
       incipit-core = {
         lower = "0.4.1.0";
-        upper = null;
+        upper = "0.6";
       };
       polysemy-conc = {
         lower = "0.11.1.0";
-        upper = null;
+        upper = "0.14";
       };
       polysemy-log = {
         lower = "0.4.0.0";
-        upper = null;
+        upper = "0.12";
       };
       polysemy-resume = {
         lower = "0.5.0.0";
-        upper = null;
+        upper = "0.9";
       };
       polysemy-time = {
         lower = "0.5.1.0";
-        upper = null;
+        upper = "0.7";
       };
     };
     zeugma = {
       base = {
         lower = "4.17.2.1";
-        upper = null;
+        upper = "4.20";
       };
       chronos = {
         lower = "1.1.5";
-        upper = null;
+        upper = "1.2";
       };
       hedgehog = {
         lower = "1.1.2";
-        upper = null;
+        upper = "1.5";
       };
       polysemy = {
         lower = "1.6.0.0";
-        upper = null;
+        upper = "1.10";
       };
       polysemy-chronos = {
         lower = "0.5.0.0";
-        upper = null;
+        upper = "0.7";
       };
       polysemy-test = {
         lower = "0.7.0.0";
-        upper = null;
+        upper = "0.10";
       };
       tasty = {
         lower = "1.4.2";
-        upper = null;
+        upper = "1.5";
       };
       tasty-expected-failure = {
         lower = "0.11.1.2";
-        upper = null;
+        upper = "0.13";
       };
       tasty-hedgehog = {
         lower = "1.3.0.0";
-        upper = null;
+        upper = "1.5";
       };
     };
   };
   versions = {
-    latest = {};
+    latest = {
+      base = "4.19.1.0";
+      chronos = "1.1.6.1";
+      hedgehog = "1.4";
+      incipit-core = "0.5.1.0";
+      polysemy = "1.9.1.3";
+      polysemy-chronos = "0.6.0.2";
+      polysemy-conc = "0.13.0.1";
+      polysemy-log = "0.11.0.0";
+      polysemy-resume = "0.8.0.1";
+      polysemy-test = "0.9.0.0";
+      polysemy-time = "0.6.0.2";
+      tasty = "1.4.3";
+      tasty-expected-failure = "0.12.3";
+      tasty-hedgehog = "1.4.0.2";
+    };
     lower = {
       base = "4.17.2.1";
       chronos = "1.1.5";
@@ -103,6 +118,12 @@
     };
   };
   overrides = {
+    latest = {
+      polysemy-log = {
+        version = "0.11.0.0";
+        hash = "1phzwj2ig0vx1anscg3qv53ysa0f7gks37pc8gfkh2aws3qp6cda";
+      };
+    };
     lower = {
       aeson = {
         version = "2.1.2.1";

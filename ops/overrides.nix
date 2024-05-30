@@ -10,6 +10,37 @@ ghc98 = {
 hls = {
 };
 latest = {
+  polysemy-log = {
+  meta = {
+    sha256 = "1phzwj2ig0vx1anscg3qv53ysa0f7gks37pc8gfkh2aws3qp6cda";
+    ver = "0.11.0.0";
+  };
+  drv = { mkDerivation, ansi-terminal, async, base, incipit-core, lib
+, polysemy, polysemy-conc, polysemy-plugin, polysemy-test
+, polysemy-time, stm, tasty, time
+}:
+mkDerivation {
+  pname = "polysemy-log";
+  version = "0.11.0.0";
+  src = /nix/store/gw84zb1ni89amkmir10g2mp458hbpqan-source;
+  libraryHaskellDepends = [
+    ansi-terminal async base incipit-core polysemy polysemy-conc
+    polysemy-time stm time
+  ];
+  testHaskellDepends = [
+    base incipit-core polysemy polysemy-conc polysemy-plugin
+    polysemy-test polysemy-time tasty time
+  ];
+  benchmarkHaskellDepends = [
+    base incipit-core polysemy polysemy-conc polysemy-plugin
+  ];
+  homepage = "https://github.com/tek/polysemy-log#readme";
+  description = "Polysemy effects for logging";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
 };
 lower = {
   aeson = {
