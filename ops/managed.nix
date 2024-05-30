@@ -22,7 +22,7 @@
         upper = "0.9";
       };
       polysemy-time = {
-        lower = "0.5.1.0";
+        lower = "0.6.0.0";
         upper = "0.7";
       };
     };
@@ -48,7 +48,7 @@
         upper = "0.7";
       };
       polysemy-process = {
-        lower = null;
+        lower = "0.11.1.0";
         upper = "0.14";
       };
       polysemy-test = {
@@ -96,9 +96,10 @@
       polysemy-chronos = "0.5.0.0";
       polysemy-conc = "0.11.1.0";
       polysemy-log = "0.4.0.0";
+      polysemy-process = "0.11.1.0";
       polysemy-resume = "0.5.0.0";
       polysemy-test = "0.7.0.0";
-      polysemy-time = "0.5.1.0";
+      polysemy-time = "0.6.0.0";
       tasty = "1.4.2";
       tasty-expected-failure = "0.11.1.2";
       tasty-hedgehog = "1.3.0.0";
@@ -114,6 +115,7 @@
       polysemy-chronos = "0.6.0.0";
       polysemy-conc = "0.12.1.0";
       polysemy-log = "0.7.2.0";
+      polysemy-process = "0.12.0.0";
       polysemy-resume = "0.7.0.0";
       polysemy-test = "0.9.0.0";
       polysemy-time = "0.6.0.0";
@@ -223,8 +225,8 @@
         hash = "05b84rizmrii847pq2fbvlpna796bwxha1vc01c3vxb2rhrknrf7";
       };
       path-io = {
-        version = "1.8.2";
-        hash = "063ma7gzqr5c6s8a1yv72jgll3xdajvgclbc8w0ddmqgcrb62x2k";
+        version = "1.7.0";
+        hash = "03gpa5x3fbn79bs18bl9nm394slrhc8cd2cydwca8l7yldcmy1i9";
       };
       polysemy = {
         version = "1.6.0.0";
@@ -242,6 +244,10 @@
         version = "0.4.0.0";
         hash = "1r9f925884ay06w44r1fvp8bh5nm642g49np2vybz8hjiia8ghdx";
       };
+      polysemy-process = {
+        version = "0.11.1.0";
+        hash = "012wngbcn43n6v9x2290sam7nk0jmrhf1fg5nq5jqgvhv1ybmkm1";
+      };
       polysemy-resume = {
         version = "0.5.0.0";
         hash = "1yavr2h31ffxj861vscm2hddrwi977ddx0sn0hh47zn78pqafz77";
@@ -251,8 +257,8 @@
         hash = "1m6ncbihr742765rshz6w7dn450f3d2ip6ci3qah27lnz7yrwmp6";
       };
       polysemy-time = {
-        version = "0.5.1.0";
-        hash = "0wm4yifj93j2csls66xxg189g3aimrixx8q4487pz1q84pk1cizd";
+        version = "0.6.0.0";
+        hash = "1ay0ym01wznk98km2ksw8slj52gc7rav6n16z4sndzsw7cdwdq2y";
       };
       prettyprinter-ansi-terminal = {
         version = "1.1.3";
