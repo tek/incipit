@@ -47,6 +47,10 @@
         lower = "0.5.0.0";
         upper = "0.7";
       };
+      polysemy-process = {
+        lower = null;
+        upper = "0.14";
+      };
       polysemy-test = {
         lower = "0.7.0.0";
         upper = "0.10";
@@ -75,6 +79,7 @@
       polysemy-chronos = "0.6.0.2";
       polysemy-conc = "0.13.0.1";
       polysemy-log = "0.11.0.0";
+      polysemy-process = "0.13.0.1";
       polysemy-resume = "0.8.0.1";
       polysemy-test = "0.9.0.0";
       polysemy-time = "0.6.0.2";
