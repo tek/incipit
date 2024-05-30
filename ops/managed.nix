@@ -7,11 +7,11 @@
       };
       incipit-core = {
         lower = "0.4.1.0";
-        upper = "0.6";
+        upper = "0.7";
       };
       polysemy-conc = {
         lower = "0.11.1.0";
-        upper = "0.14";
+        upper = "0.15";
       };
       polysemy-log = {
         lower = "0.4.0.0";
@@ -19,11 +19,11 @@
       };
       polysemy-resume = {
         lower = "0.5.0.0";
-        upper = "0.9";
+        upper = "0.10";
       };
       polysemy-time = {
         lower = "0.5.1.0";
-        upper = "0.7";
+        upper = "0.8";
       };
     };
     zeugma = {
@@ -45,15 +45,15 @@
       };
       polysemy-chronos = {
         lower = "0.5.0.0";
-        upper = "0.7";
+        upper = "0.8";
       };
       polysemy-process = {
         lower = "0.11.1.0";
-        upper = "0.14";
+        upper = "0.15";
       };
       polysemy-test = {
         lower = "0.7.0.0";
-        upper = "0.10";
+        upper = "0.11";
       };
       tasty = {
         lower = "1.4.2";
@@ -74,15 +74,15 @@
       base = "4.19.1.0";
       chronos = "1.1.6.1";
       hedgehog = "1.4";
-      incipit-core = "0.5.1.0";
+      incipit-core = "0.6.0.0";
       polysemy = "1.9.1.3";
-      polysemy-chronos = "0.6.0.2";
-      polysemy-conc = "0.13.0.1";
+      polysemy-chronos = "0.7.0.0";
+      polysemy-conc = "0.14.1.0";
       polysemy-log = "0.11.0.0";
-      polysemy-process = "0.13.0.1";
-      polysemy-resume = "0.8.0.1";
-      polysemy-test = "0.9.0.0";
-      polysemy-time = "0.6.0.2";
+      polysemy-process = "0.14.1.0";
+      polysemy-resume = "0.9.0.0";
+      polysemy-test = "0.10.0.0";
+      polysemy-time = "0.7.0.0";
       tasty = "1.4.3";
       tasty-expected-failure = "0.12.3";
       tasty-hedgehog = "1.4.0.2";
@@ -126,9 +126,41 @@
   };
   overrides = {
     latest = {
+      incipit-base = {
+        version = "0.6.0.0";
+        hash = "1hck35yfy0dcgimgnd90w02zvv7x7k456bljrbx2mwxalnhav9gf";
+      };
+      incipit-core = {
+        version = "0.6.0.0";
+        hash = "0gmngb4pinkpbsnclrgs6x016ffnls1g4xzz0hdzg2rpyl63d5ph";
+      };
+      polysemy-chronos = {
+        version = "0.7.0.0";
+        hash = "0srq4xda9rracrf0frqh9vb00fscxyjv8w6fgavgxbxsrir856i8";
+      };
+      polysemy-conc = {
+        version = "0.14.1.0";
+        hash = "0lzgw6dqhw0dv00bn9aasys2v8iddxyck5vmpglrp92chba55jxv";
+      };
       polysemy-log = {
         version = "0.11.0.0";
         hash = "1phzwj2ig0vx1anscg3qv53ysa0f7gks37pc8gfkh2aws3qp6cda";
+      };
+      polysemy-process = {
+        version = "0.14.1.0";
+        hash = "125fiwq30ybncmc0pb25ki3k2sxbhkjz4k2i53bcj9y026xgvjyi";
+      };
+      polysemy-resume = {
+        version = "0.9.0.0";
+        hash = "1achlwdkycbgjlcdkq641r481m1bl9rb7fklbwfb9nnb6xmqyzms";
+      };
+      polysemy-test = {
+        version = "0.10.0.0";
+        hash = "0vdsid9xg41szx4g37lmg44h31q7j9ll805rgfrpr1ylf4f3x1hp";
+      };
+      polysemy-time = {
+        version = "0.7.0.0";
+        hash = "0imvjiybxrsggh72pfkd226pvzhz5hg1zvxyd72b91a3xz1vynmq";
       };
     };
     lower = {

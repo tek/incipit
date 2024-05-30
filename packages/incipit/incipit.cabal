@@ -114,9 +114,9 @@ library
   ghc-options: -Wall -Widentities -Wincomplete-uni-patterns -Wmissing-deriving-strategies -Wredundant-constraints -Wunused-type-patterns -Wunused-packages
   build-depends:
       base >=4.17.2.1 && <4.20
-    , incipit-core >=0.4.1.0 && <0.6
-    , polysemy-conc >=0.11.1.0 && <0.14
+    , incipit-core >=0.4.1.0 && <0.7
+    , polysemy-conc >=0.11.1.0 && <0.15
     , polysemy-log >=0.4.0.0 && <0.12
-    , polysemy-resume >=0.5.0.0 && <0.9
-    , polysemy-time >=0.5.1.0 && <0.7
+    , polysemy-resume >=0.5.0.0 && <0.10
+    , polysemy-time >=0.5.1.0 && <0.8
   default-language: GHC2021

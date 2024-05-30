@@ -10,6 +10,99 @@ ghc98 = {
 hls = {
 };
 latest = {
+  incipit-base = {
+  meta = {
+    sha256 = "1hck35yfy0dcgimgnd90w02zvv7x7k456bljrbx2mwxalnhav9gf";
+    ver = "0.6.0.0";
+  };
+  drv = { mkDerivation, base, bytestring, containers, data-default, lib
+, stm, text
+}:
+mkDerivation {
+  pname = "incipit-base";
+  version = "0.6.0.0";
+  src = /nix/store/bcs2wgdcfmnm1msbd7n8qd27ikwv3rcm-source;
+  libraryHaskellDepends = [
+    base bytestring containers data-default stm text
+  ];
+  homepage = "https://github.com/tek/incipit-core#readme";
+  description = "A Prelude for Polysemy – Base Reexports";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  incipit-core = {
+  meta = {
+    sha256 = "0gmngb4pinkpbsnclrgs6x016ffnls1g4xzz0hdzg2rpyl63d5ph";
+    ver = "0.6.0.0";
+  };
+  drv = { mkDerivation, base, incipit-base, lib, polysemy }:
+mkDerivation {
+  pname = "incipit-core";
+  version = "0.6.0.0";
+  src = /nix/store/r29nfjc427wwr536jccy99r885kbyw02-source;
+  libraryHaskellDepends = [ base incipit-base polysemy ];
+  homepage = "https://github.com/tek/incipit-core#readme";
+  description = "A Prelude for Polysemy";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-chronos = {
+  meta = {
+    sha256 = "0srq4xda9rracrf0frqh9vb00fscxyjv8w6fgavgxbxsrir856i8";
+    ver = "0.7.0.0";
+  };
+  drv = { mkDerivation, base, chronos, incipit-core, lib, polysemy-test
+, polysemy-time, tasty
+}:
+mkDerivation {
+  pname = "polysemy-chronos";
+  version = "0.7.0.0";
+  src = /nix/store/3h28i4ahymbgd5d81x9yfbd12xddrdb3-source;
+  libraryHaskellDepends = [
+    base chronos incipit-core polysemy-time
+  ];
+  testHaskellDepends = [
+    base chronos incipit-core polysemy-test polysemy-time tasty
+  ];
+  homepage = "https://github.com/tek/polysemy-time#readme";
+  description = "A Polysemy effect for Chronos";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-conc = {
+  meta = {
+    sha256 = "0lzgw6dqhw0dv00bn9aasys2v8iddxyck5vmpglrp92chba55jxv";
+    ver = "0.14.1.0";
+  };
+  drv = { mkDerivation, async, base, hedgehog, incipit-core, lib, polysemy
+, polysemy-plugin, polysemy-resume, polysemy-test, polysemy-time
+, stm, stm-chans, tasty, tasty-hedgehog, time, torsor, unagi-chan
+}:
+mkDerivation {
+  pname = "polysemy-conc";
+  version = "0.14.1.0";
+  src = /nix/store/xi7sav0g2qpr85z5k0ds7k7f5w5b16gj-source;
+  libraryHaskellDepends = [
+    async base incipit-core polysemy polysemy-resume polysemy-time stm
+    stm-chans torsor unagi-chan
+  ];
+  testHaskellDepends = [
+    async base hedgehog incipit-core polysemy polysemy-plugin
+    polysemy-test polysemy-time tasty tasty-hedgehog time torsor
+  ];
+  homepage = "https://github.com/tek/polysemy-conc#readme";
+  description = "Polysemy effects for concurrency";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
   polysemy-log = {
   meta = {
     sha256 = "1phzwj2ig0vx1anscg3qv53ysa0f7gks37pc8gfkh2aws3qp6cda";
@@ -36,6 +129,115 @@ mkDerivation {
   ];
   homepage = "https://github.com/tek/polysemy-log#readme";
   description = "Polysemy effects for logging";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-process = {
+  meta = {
+    sha256 = "125fiwq30ybncmc0pb25ki3k2sxbhkjz4k2i53bcj9y026xgvjyi";
+    ver = "0.14.1.0";
+  };
+  drv = { mkDerivation, async, base, hedgehog, incipit-core, lib, path
+, path-io, polysemy, polysemy-conc, polysemy-plugin
+, polysemy-resume, polysemy-test, polysemy-time, posix-pty, process
+, stm-chans, tasty, tasty-expected-failure, tasty-hedgehog
+, typed-process, unix
+}:
+mkDerivation {
+  pname = "polysemy-process";
+  version = "0.14.1.0";
+  src = /nix/store/y60m0pnnmkma31bwwjzx3hrpa9jy136f-source;
+  libraryHaskellDepends = [
+    async base incipit-core path path-io polysemy polysemy-conc
+    polysemy-resume polysemy-time posix-pty process stm-chans
+    typed-process unix
+  ];
+  testHaskellDepends = [
+    async base hedgehog incipit-core polysemy polysemy-conc
+    polysemy-plugin polysemy-resume polysemy-test polysemy-time tasty
+    tasty-expected-failure tasty-hedgehog typed-process unix
+  ];
+  homepage = "https://github.com/tek/polysemy-conc#readme";
+  description = "Polysemy effects for system processes";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-resume = {
+  meta = {
+    sha256 = "1achlwdkycbgjlcdkq641r481m1bl9rb7fklbwfb9nnb6xmqyzms";
+    ver = "0.9.0.0";
+  };
+  drv = { mkDerivation, base, incipit-core, lib, polysemy, polysemy-plugin
+, polysemy-test, stm, tasty, transformers
+}:
+mkDerivation {
+  pname = "polysemy-resume";
+  version = "0.9.0.0";
+  src = /nix/store/6iizg7w3a4l1l5w6wf42rn9a2fimh2hd-source;
+  libraryHaskellDepends = [
+    base incipit-core polysemy transformers
+  ];
+  testHaskellDepends = [
+    base incipit-core polysemy polysemy-plugin polysemy-test stm tasty
+  ];
+  homepage = "https://github.com/tek/polysemy-resume#readme";
+  description = "Polysemy error tracking";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-test = {
+  meta = {
+    sha256 = "0vdsid9xg41szx4g37lmg44h31q7j9ll805rgfrpr1ylf4f3x1hp";
+    ver = "0.10.0.0";
+  };
+  drv = { mkDerivation, base, hedgehog, incipit-core, lib, path, path-io
+, polysemy, tasty, tasty-hedgehog, transformers
+}:
+mkDerivation {
+  pname = "polysemy-test";
+  version = "0.10.0.0";
+  src = /nix/store/byqlnsg2xgbpagl85h2kgmj6bryigjbz-source;
+  enableSeparateDataOutput = true;
+  libraryHaskellDepends = [
+    base hedgehog incipit-core path path-io polysemy tasty
+    tasty-hedgehog transformers
+  ];
+  testHaskellDepends = [
+    base hedgehog incipit-core path polysemy tasty
+  ];
+  homepage = "https://github.com/tek/polysemy-test#readme";
+  description = "Polysemy effects for testing";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
+  polysemy-time = {
+  meta = {
+    sha256 = "0imvjiybxrsggh72pfkd226pvzhz5hg1zvxyd72b91a3xz1vynmq";
+    ver = "0.7.0.0";
+  };
+  drv = { mkDerivation, aeson, base, incipit-core, lib, polysemy-test
+, tasty, template-haskell, time, torsor
+}:
+mkDerivation {
+  pname = "polysemy-time";
+  version = "0.7.0.0";
+  src = /nix/store/6zhyai87684jqad2gj55xdymsin25rlx-source;
+  libraryHaskellDepends = [
+    aeson base incipit-core template-haskell time torsor
+  ];
+  testHaskellDepends = [
+    base incipit-core polysemy-test tasty time
+  ];
+  homepage = "https://github.com/tek/polysemy-time#readme";
+  description = "A Polysemy effect for time";
   license = "BSD-2-Clause-Patent";
 }
 ;
