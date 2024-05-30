@@ -9,13 +9,9 @@ ghc98 = {
 };
 hls = {
 };
-latest-incipit = {
+latest = {
 };
-latest-zeugma = {
-};
-lower-incipit = {
-};
-lower-zeugma = {
+lower = {
 };
 min = {
 };
