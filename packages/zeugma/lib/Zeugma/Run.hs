@@ -26,8 +26,6 @@ import Time (mkDatetime)
 
 #if MIN_VERSION_polysemy_process(0, 14, 0)
 import Polysemy.Process (Interrupt)
-#else
-import Polysemy.Conc (Interrupt)
 #endif
 
 type ConcTestStack' =
