@@ -1,4 +1,4 @@
--- |A Prelude for Polysemy projects, reexporting names and modules from several basic libraries.
+-- | A Prelude for Polysemy projects, reexporting names and modules from several basic libraries.
 module Incipit.Full (
   module IncipitCore,
   module Polysemy.Conc,
