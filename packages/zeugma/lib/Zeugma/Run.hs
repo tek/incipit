@@ -11,7 +11,6 @@ import Conc (
   Gates,
   interpretCritical,
   interpretGates,
-  interpretInterrupt,
   interpretMaskFinal,
   interpretRace,
   interpretUninterruptibleMaskFinal,
@@ -25,9 +24,9 @@ import Polysemy.Test (Hedgehog, Test, TestError (TestError), runTestAuto)
 import Time (mkDatetime)
 
 #if MIN_VERSION_polysemy_process(0, 14, 0)
-import Polysemy.Process (Interrupt)
+import Polysemy.Process (Interrupt, interpretInterrupt)
 #else
-import Polysemy.Conc (Interrupt)
+import Conc (interpretInterrupt)
 #endif
 
 type ConcTestStack' =
