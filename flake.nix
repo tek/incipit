@@ -8,6 +8,7 @@
       polysemy-test = jailbreak unbreak;
       polysemy-conc = jailbreak;
       polysemy-log = jailbreak;
+      polysemy-process = unbreak;
     };
   in {
     ghcVersions = ["ghc94" "ghc96" "ghc98"];
@@ -107,6 +108,7 @@
           config.packages.incipit.dep.exact
           "polysemy"
           "polysemy-chronos"
+          "polysemy-process"
           "polysemy-test"
           "tasty"
           "tasty-expected-failure"

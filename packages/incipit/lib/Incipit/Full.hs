@@ -1,3 +1,5 @@
+{-# language CPP #-}
+
 -- | A Prelude for Polysemy projects, reexporting names and modules from several basic libraries.
 module Incipit.Full (
   module IncipitCore,
@@ -11,7 +13,6 @@ import IncipitCore
 import Polysemy.Conc (
   EventConsumer,
   Events,
-  Interrupt,
   Mask,
   Queue,
   QueueResult,
@@ -27,3 +28,7 @@ import Polysemy.Conc (
 import Polysemy.Log (DataLog, Log)
 import Polysemy.Resume
 import Polysemy.Time (Time, TimeUnit)
+
+#if ! MIN_VERSION_polysemy_conc(0, 14, 0)
+import Polysemy.Conc (Interrupt)
+#endif
