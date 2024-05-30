@@ -650,8 +650,8 @@ mkDerivation {
 ;
   path-io = {
   meta = {
-    sha256 = "063ma7gzqr5c6s8a1yv72jgll3xdajvgclbc8w0ddmqgcrb62x2k";
-    ver = "1.8.2";
+    sha256 = "03gpa5x3fbn79bs18bl9nm394slrhc8cd2cydwca8l7yldcmy1i9";
+    ver = "1.7.0";
   };
   drv = { mkDerivation, base, containers, directory, dlist, exceptions
 , filepath, hspec, lib, path, temporary, time, transformers
@@ -659,13 +659,16 @@ mkDerivation {
 }:
 mkDerivation {
   pname = "path-io";
-  version = "1.8.2";
-  src = /nix/store/y2n6qszdsqdfhhbw4fl146qzyj1sa7zb-source;
+  version = "1.7.0";
+  src = /nix/store/3vq625vf6iay14496x673h4qf7f7dqpw-source;
   libraryHaskellDepends = [
     base containers directory dlist exceptions filepath path temporary
     time transformers unix-compat
   ];
-  testHaskellDepends = [ base exceptions hspec path unix-compat ];
+  testHaskellDepends = [
+    base directory exceptions filepath hspec path transformers
+    unix-compat
+  ];
   homepage = "https://github.com/mrkkrp/path-io";
   description = "Interface to ‘directory’ package for users of ‘path’";
   license = lib.licenses.bsd3;
@@ -793,6 +796,37 @@ mkDerivation {
 ;
 }
 ;
+  polysemy-process = {
+  meta = {
+    sha256 = "012wngbcn43n6v9x2290sam7nk0jmrhf1fg5nq5jqgvhv1ybmkm1";
+    ver = "0.11.1.0";
+  };
+  drv = { mkDerivation, base, incipit-core, lib, path, path-io, polysemy
+, polysemy-conc, polysemy-plugin, polysemy-resume, polysemy-test
+, polysemy-time, posix-pty, process, stm-chans, tasty
+, tasty-expected-failure, typed-process, unix
+}:
+mkDerivation {
+  pname = "polysemy-process";
+  version = "0.11.1.0";
+  src = /nix/store/1hpdcx98sqiycg0s3galqgsfd97sirn2-source;
+  libraryHaskellDepends = [
+    base incipit-core path path-io polysemy polysemy-conc
+    polysemy-resume polysemy-time posix-pty process stm-chans
+    typed-process unix
+  ];
+  testHaskellDepends = [
+    base incipit-core polysemy polysemy-conc polysemy-plugin
+    polysemy-resume polysemy-test polysemy-time tasty
+    tasty-expected-failure typed-process
+  ];
+  homepage = "https://github.com/tek/polysemy-conc#readme";
+  description = "Polysemy effects for system processes";
+  license = "BSD-2-Clause-Patent";
+}
+;
+}
+;
   polysemy-resume = {
   meta = {
     sha256 = "1yavr2h31ffxj861vscm2hddrwi977ddx0sn0hh47zn78pqafz77";
@@ -849,18 +883,18 @@ mkDerivation {
 ;
   polysemy-time = {
   meta = {
-    sha256 = "0wm4yifj93j2csls66xxg189g3aimrixx8q4487pz1q84pk1cizd";
-    ver = "0.5.1.0";
+    sha256 = "1ay0ym01wznk98km2ksw8slj52gc7rav6n16z4sndzsw7cdwdq2y";
+    ver = "0.6.0.0";
   };
-  drv = { mkDerivation, aeson, base, incipit-core, lib, polysemy-test, stm
+  drv = { mkDerivation, aeson, base, incipit-core, lib, polysemy-test
 , tasty, template-haskell, time, torsor
 }:
 mkDerivation {
   pname = "polysemy-time";
-  version = "0.5.1.0";
-  src = /nix/store/is8ch0lnjkykvjqr6wny0dii6jyrl9vk-source;
+  version = "0.6.0.0";
+  src = /nix/store/cpli49vw3sc8vdh8vc747jvidvaag1d4-source;
   libraryHaskellDepends = [
-    aeson base incipit-core stm template-haskell time torsor
+    aeson base incipit-core template-haskell time torsor
   ];
   testHaskellDepends = [
     base incipit-core polysemy-test tasty time
