@@ -1,4 +1,4 @@
-{-# language NoImplicitPrelude #-}
+{-# language NoImplicitPrelude, CPP #-}
 {-# options_haddock prune #-}
 
 -- | Test runners for polysemy-conc programs using hedgehog.
@@ -11,7 +11,6 @@ import Conc (
   Gates,
   interpretCritical,
   interpretGates,
-  interpretInterrupt,
   interpretMaskFinal,
   interpretRace,
   interpretUninterruptibleMaskFinal,
@@ -23,6 +22,12 @@ import Log (Severity (Crit, Debug, Trace), interpretLogStderrLevelConc)
 import Polysemy.Chronos (ChronosTime, interpretTimeChronos, interpretTimeChronosConstant)
 import Polysemy.Test (Hedgehog, Test, TestError (TestError), runTestAuto)
 import Time (mkDatetime)
+
+#if MIN_VERSION_polysemy_process(0, 14, 0)
+import Polysemy.Process (Interrupt, interpretInterrupt)
+#else
+import Conc (interpretInterrupt)
+#endif
 
 type ConcTestStack' =
   [
