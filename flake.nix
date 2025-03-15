@@ -136,6 +136,7 @@
       lower.enable = true;
       latest.compiler = "ghc910";
       envs.solverOverrides = overrides910;
+      forceBounds.polysemy-conc.lower = "0.14";
     };
 
     inherit overrides;
