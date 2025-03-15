@@ -15,29 +15,6 @@
     compat.versions = ["ghc96"];
     main = "zeugma";
     gen-overrides.enable = true;
-    managed = {
-      enable = true;
-      lower.enable = true;
-      envs.solverOverrides = overrides;
-      latest.compiler = "ghc98";
-    };
-
-    inherit overrides;
-
-    envs.latest = { inherit overrides; };
-    envs.lower = { inherit overrides; };
-
-    cabal = {
-      license = "BSD-2-Clause-Patent";
-      license-file = "LICENSE";
-      author = "Torsten Schmits";
-      meta = {
-        maintainer = "hackage@tryp.io";
-        category = "Prelude";
-        github = "tek/incipit";
-        extra-source-files = ["readme.md" "changelog.md"];
-      };
-    };
 
     packages.incipit = {
       src = ./packages/incipit;
@@ -124,6 +101,30 @@
       };
 
     };
+
+    cabal = {
+      license = "BSD-2-Clause-Patent";
+      license-file = "LICENSE";
+      author = "Torsten Schmits";
+      meta = {
+        maintainer = "hackage@tryp.io";
+        category = "Prelude";
+        github = "tek/incipit";
+        extra-source-files = ["readme.md" "changelog.md"];
+      };
+    };
+
+    managed = {
+      enable = true;
+      lower.enable = true;
+      envs.solverOverrides = overrides;
+      latest.compiler = "ghc98";
+    };
+
+    inherit overrides;
+
+    envs.latest = { inherit overrides; };
+    envs.lower = { inherit overrides; };
 
   });
 }
