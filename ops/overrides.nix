@@ -950,8 +950,8 @@ mkDerivation {
 ;
   path-io = {
   meta = {
-    sha256 = "03gpa5x3fbn79bs18bl9nm394slrhc8cd2cydwca8l7yldcmy1i9";
-    ver = "1.7.0";
+    sha256 = "063ma7gzqr5c6s8a1yv72jgll3xdajvgclbc8w0ddmqgcrb62x2k";
+    ver = "1.8.2";
   };
   drv = { mkDerivation, base, containers, directory, dlist, exceptions
 , filepath, hspec, lib, path, temporary, time, transformers
@@ -959,16 +959,13 @@ mkDerivation {
 }:
 mkDerivation {
   pname = "path-io";
-  version = "1.7.0";
-  src = /nix/store/3vq625vf6iay14496x673h4qf7f7dqpw-source;
+  version = "1.8.2";
+  src = /nix/store/y2n6qszdsqdfhhbw4fl146qzyj1sa7zb-source;
   libraryHaskellDepends = [
     base containers directory dlist exceptions filepath path temporary
     time transformers unix-compat
   ];
-  testHaskellDepends = [
-    base directory exceptions filepath hspec path transformers
-    unix-compat
-  ];
+  testHaskellDepends = [ base exceptions hspec path unix-compat ];
   homepage = "https://github.com/mrkkrp/path-io";
   description = "Interface to ‘directory’ package for users of ‘path’";
   license = lib.licenses.bsd3;
@@ -978,35 +975,29 @@ mkDerivation {
 ;
   polysemy = {
   meta = {
-    sha256 = "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
-    ver = "1.6.0.0";
+    sha256 = "1af07cppnjpv5v56wanya1mhkvbfnyynf5447mnkcf4zc4k23pyk";
+    ver = "1.9.0.0";
   };
   drv = { mkDerivation, async, base, Cabal, cabal-doctest, containers
-, criterion, doctest, first-class-families, free, freer-simple
-, hspec, hspec-discover, inspection-testing, lib, mtl, QuickCheck
-, stm, syb, template-haskell, th-abstraction, transformers
-, type-errors, unagi-chan
+, doctest, first-class-families, hspec, hspec-discover
+, inspection-testing, lib, mtl, stm, syb, template-haskell
+, th-abstraction, transformers, type-errors, unagi-chan
 }:
 mkDerivation {
   pname = "polysemy";
-  version = "1.6.0.0";
-  src = /nix/store/kmala48rqnh42ls38mb9qfx49ssbi3js-source;
+  version = "1.9.0.0";
+  src = /nix/store/kvnhlq5qdjyvr6xqllbjpnahlmgv2xjh-source;
   setupHaskellDepends = [ base Cabal cabal-doctest ];
   libraryHaskellDepends = [
-    async base containers first-class-families mtl QuickCheck stm syb
+    async base containers first-class-families mtl stm syb
     template-haskell th-abstraction transformers type-errors unagi-chan
   ];
   testHaskellDepends = [
     async base containers doctest first-class-families hspec
-    inspection-testing mtl QuickCheck stm syb template-haskell
+    hspec-discover inspection-testing mtl stm syb template-haskell
     th-abstraction transformers type-errors unagi-chan
   ];
   testToolDepends = [ hspec-discover ];
-  benchmarkHaskellDepends = [
-    async base containers criterion first-class-families free
-    freer-simple mtl QuickCheck stm syb template-haskell th-abstraction
-    transformers type-errors unagi-chan
-  ];
   homepage = "https://github.com/polysemy-research/polysemy#readme";
   description = "Higher-order, low-boilerplate free monads";
   license = lib.licenses.bsd3;
@@ -1041,26 +1032,24 @@ mkDerivation {
 ;
   polysemy-conc = {
   meta = {
-    sha256 = "12w102jpdyrfjqz10bg8k0dyczvvii3x1v02vqd8is26qbfm20q0";
-    ver = "0.11.1.0";
+    sha256 = "0lzgw6dqhw0dv00bn9aasys2v8iddxyck5vmpglrp92chba55jxv";
+    ver = "0.14.1.0";
   };
-  drv = { mkDerivation, async, base, containers, hedgehog, incipit-core
-, lib, polysemy, polysemy-plugin, polysemy-resume, polysemy-test
-, polysemy-time, stm, stm-chans, tasty, tasty-hedgehog, time
-, torsor, unagi-chan, unix
+  drv = { mkDerivation, async, base, hedgehog, incipit-core, lib, polysemy
+, polysemy-plugin, polysemy-resume, polysemy-test, polysemy-time
+, stm, stm-chans, tasty, tasty-hedgehog, time, torsor, unagi-chan
 }:
 mkDerivation {
   pname = "polysemy-conc";
-  version = "0.11.1.0";
-  src = /nix/store/sjrm830lqxpsg3h5cb5rw6dl5zpfb5pl-source;
+  version = "0.14.1.0";
+  src = /nix/store/xi7sav0g2qpr85z5k0ds7k7f5w5b16gj-source;
   libraryHaskellDepends = [
-    async base containers incipit-core polysemy polysemy-resume
-    polysemy-time stm stm-chans torsor unagi-chan unix
+    async base incipit-core polysemy polysemy-resume polysemy-time stm
+    stm-chans torsor unagi-chan
   ];
   testHaskellDepends = [
     async base hedgehog incipit-core polysemy polysemy-plugin
-    polysemy-resume polysemy-test polysemy-time stm tasty
-    tasty-hedgehog time unix
+    polysemy-test polysemy-time tasty tasty-hedgehog time torsor
   ];
   homepage = "https://github.com/tek/polysemy-conc#readme";
   description = "Polysemy effects for concurrency";
@@ -1071,26 +1060,27 @@ mkDerivation {
 ;
   polysemy-log = {
   meta = {
-    sha256 = "1r9f925884ay06w44r1fvp8bh5nm642g49np2vybz8hjiia8ghdx";
-    ver = "0.4.0.0";
+    sha256 = "16gfg4cy3vpqkdmnqjh413l96qfdxqww9b9szjp97k55zwrd3x6l";
+    ver = "0.7.0.0";
   };
-  drv = { mkDerivation, ansi-terminal, base, lib, polysemy, polysemy-conc
-, polysemy-test, polysemy-time, relude, tasty, template-haskell
-, text, time
+  drv = { mkDerivation, ansi-terminal, async, base, incipit-core, lib
+, polysemy, polysemy-conc, polysemy-plugin, polysemy-test
+, polysemy-time, stm, tasty, time
 }:
 mkDerivation {
   pname = "polysemy-log";
-  version = "0.4.0.0";
-  src = /nix/store/p0q8bb3iklim16l5fhwbw84dl26s9gl0-source;
+  version = "0.7.0.0";
+  src = /nix/store/ry2xrcx0nvjd68p6w0wgfr88r0gy9npr-source;
   libraryHaskellDepends = [
-    ansi-terminal base polysemy polysemy-conc polysemy-time relude
-    template-haskell text time
+    ansi-terminal async base incipit-core polysemy polysemy-conc
+    polysemy-time stm time
   ];
   testHaskellDepends = [
-    base polysemy polysemy-conc polysemy-test polysemy-time tasty time
+    base incipit-core polysemy polysemy-conc polysemy-plugin
+    polysemy-test polysemy-time tasty time
   ];
   homepage = "https://github.com/tek/polysemy-log#readme";
-  description = "Polysemy Effects for Logging";
+  description = "Polysemy effects for logging";
   license = "BSD-2-Clause-Patent";
 }
 ;
@@ -1098,27 +1088,28 @@ mkDerivation {
 ;
   polysemy-process = {
   meta = {
-    sha256 = "012wngbcn43n6v9x2290sam7nk0jmrhf1fg5nq5jqgvhv1ybmkm1";
-    ver = "0.11.1.0";
+    sha256 = "125fiwq30ybncmc0pb25ki3k2sxbhkjz4k2i53bcj9y026xgvjyi";
+    ver = "0.14.1.0";
   };
-  drv = { mkDerivation, base, incipit-core, lib, path, path-io, polysemy
-, polysemy-conc, polysemy-plugin, polysemy-resume, polysemy-test
-, polysemy-time, posix-pty, process, stm-chans, tasty
-, tasty-expected-failure, typed-process, unix
+  drv = { mkDerivation, async, base, hedgehog, incipit-core, lib, path
+, path-io, polysemy, polysemy-conc, polysemy-plugin
+, polysemy-resume, polysemy-test, polysemy-time, posix-pty, process
+, stm-chans, tasty, tasty-expected-failure, tasty-hedgehog
+, typed-process, unix
 }:
 mkDerivation {
   pname = "polysemy-process";
-  version = "0.11.1.0";
-  src = /nix/store/1hpdcx98sqiycg0s3galqgsfd97sirn2-source;
+  version = "0.14.1.0";
+  src = /nix/store/y60m0pnnmkma31bwwjzx3hrpa9jy136f-source;
   libraryHaskellDepends = [
-    base incipit-core path path-io polysemy polysemy-conc
+    async base incipit-core path path-io polysemy polysemy-conc
     polysemy-resume polysemy-time posix-pty process stm-chans
     typed-process unix
   ];
   testHaskellDepends = [
-    base incipit-core polysemy polysemy-conc polysemy-plugin
-    polysemy-resume polysemy-test polysemy-time tasty
-    tasty-expected-failure typed-process
+    async base hedgehog incipit-core polysemy polysemy-conc
+    polysemy-plugin polysemy-resume polysemy-test polysemy-time tasty
+    tasty-expected-failure tasty-hedgehog typed-process unix
   ];
   homepage = "https://github.com/tek/polysemy-conc#readme";
   description = "Polysemy effects for system processes";
@@ -1129,23 +1120,21 @@ mkDerivation {
 ;
   polysemy-resume = {
   meta = {
-    sha256 = "1yavr2h31ffxj861vscm2hddrwi977ddx0sn0hh47zn78pqafz77";
-    ver = "0.5.0.0";
+    sha256 = "1b9agh2qd0nrbd7cc5iabkzjb7g9lnzzy3pprvn33hr54va9p928";
+    ver = "0.7.0.0";
   };
-  drv = { mkDerivation, base, hedgehog, incipit-core, lib, polysemy
-, polysemy-plugin, polysemy-test, stm, tasty, tasty-hedgehog, text
-, transformers
+  drv = { mkDerivation, base, incipit-core, lib, polysemy, polysemy-plugin
+, polysemy-test, stm, tasty, transformers
 }:
 mkDerivation {
   pname = "polysemy-resume";
-  version = "0.5.0.0";
-  src = /nix/store/dwf1hw9hfvcj71g0gjk0pr9v6kd3n8gw-source;
+  version = "0.7.0.0";
+  src = /nix/store/2l5708xrry0mnv5znidx9affjinmpryq-source;
   libraryHaskellDepends = [
     base incipit-core polysemy transformers
   ];
   testHaskellDepends = [
-    base hedgehog incipit-core polysemy polysemy-plugin polysemy-test
-    stm tasty tasty-hedgehog text
+    base incipit-core polysemy polysemy-plugin polysemy-test stm tasty
   ];
   homepage = "https://github.com/tek/polysemy-resume#readme";
   description = "Polysemy error tracking";
@@ -1320,36 +1309,6 @@ mkDerivation {
   homepage = "https://github.com/haskell-primitive/primitive-unlifted";
   description = "Primitive GHC types with unlifted types inside";
   license = lib.licenses.bsd3;
-}
-;
-}
-;
-  relude = {
-  meta = {
-    sha256 = "0gmcdwci7r0cb2zjry9ycq0kn7x8bfq40ngjd6xdc0pbh7cz6v8i";
-    ver = "1.2.2.0";
-  };
-  drv = { mkDerivation, base, bytestring, containers, deepseq, doctest
-, ghc-prim, Glob, hashable, hedgehog, lib, mtl, stm, tasty-bench
-, text, transformers, unordered-containers
-}:
-mkDerivation {
-  pname = "relude";
-  version = "1.2.2.0";
-  src = /nix/store/cmp50jrhkbg65bh89ci8i7jg5kw20rpz-source;
-  libraryHaskellDepends = [
-    base bytestring containers deepseq ghc-prim hashable mtl stm text
-    transformers unordered-containers
-  ];
-  testHaskellDepends = [
-    base bytestring containers doctest Glob hedgehog text
-  ];
-  benchmarkHaskellDepends = [
-    base tasty-bench unordered-containers
-  ];
-  homepage = "https://github.com/kowainik/relude";
-  description = "Safe, performant, user-friendly and lightweight Haskell Standard Library";
-  license = lib.licenses.mit;
 }
 ;
 }

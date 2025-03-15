@@ -44,7 +44,7 @@
         dependencies = [
           "base"
           "incipit-core"
-          "polysemy-conc"
+          "polysemy-conc >=0.14"
           "polysemy-log"
           "polysemy-resume"
           "polysemy-time"
@@ -136,6 +136,7 @@
       lower.enable = true;
       latest.compiler = "ghc910";
       envs.solverOverrides = overrides910;
+      mergeBounds = true;
       forceBounds.polysemy-conc.lower = "0.14";
     };
 

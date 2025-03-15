@@ -10,15 +10,15 @@
         upper = "0.7";
       };
       polysemy-conc = {
-        lower = "0.11.1.0";
+        lower = "0.14.1.0";
         upper = "0.15";
       };
       polysemy-log = {
-        lower = "0.4.0.0";
+        lower = "0.7.0.0";
         upper = "0.12";
       };
       polysemy-resume = {
-        lower = "0.5.0.0";
+        lower = "0.7.0.0";
         upper = "0.10";
       };
       polysemy-time = {
@@ -40,7 +40,7 @@
         upper = "1.6";
       };
       polysemy = {
-        lower = "1.6.0.0";
+        lower = "1.9.0.0";
         upper = "1.10";
       };
       polysemy-chronos = {
@@ -48,7 +48,7 @@
         upper = "0.8";
       };
       polysemy-process = {
-        lower = "0.11.1.0";
+        lower = "0.14.1.0";
         upper = "0.15";
       };
       polysemy-test = {
@@ -92,12 +92,12 @@
       chronos = "1.1.5";
       hedgehog = "1.1.2";
       incipit-core = "0.4.1.0";
-      polysemy = "1.6.0.0";
+      polysemy = "1.9.0.0";
       polysemy-chronos = "0.5.0.0";
-      polysemy-conc = "0.11.1.0";
-      polysemy-log = "0.4.0.0";
-      polysemy-process = "0.11.1.0";
-      polysemy-resume = "0.5.0.0";
+      polysemy-conc = "0.14.1.0";
+      polysemy-log = "0.7.0.0";
+      polysemy-process = "0.14.1.0";
+      polysemy-resume = "0.7.0.0";
       polysemy-test = "0.7.0.0";
       polysemy-time = "0.5.1.0";
       tasty = "1.2.2";
@@ -110,16 +110,16 @@
     lower = {
       chronos = "1.1.5";
       hedgehog = "1.2";
-      incipit-core = "0.5.1.0";
+      incipit-core = "0.6.0.0";
       polysemy = "1.9.0.0";
-      polysemy-chronos = "0.6.0.0";
-      polysemy-conc = "0.12.1.0";
-      polysemy-log = "0.7.2.0";
-      polysemy-process = "0.12.0.0";
-      polysemy-resume = "0.7.0.0";
-      polysemy-test = "0.9.0.0";
-      polysemy-time = "0.6.0.0";
-      tasty = "1.4.2";
+      polysemy-chronos = "0.7.0.0";
+      polysemy-conc = "0.14.1.0";
+      polysemy-log = "0.11.0.0";
+      polysemy-process = "0.14.1.0";
+      polysemy-resume = "0.9.0.0";
+      polysemy-test = "0.7.0.0";
+      polysemy-time = "0.7.0.0";
+      tasty = "1.4";
       tasty-expected-failure = "0.12";
       tasty-hedgehog = "1.4.0.0";
     };
@@ -269,32 +269,32 @@
         hash = "05b84rizmrii847pq2fbvlpna796bwxha1vc01c3vxb2rhrknrf7";
       };
       path-io = {
-        version = "1.7.0";
-        hash = "03gpa5x3fbn79bs18bl9nm394slrhc8cd2cydwca8l7yldcmy1i9";
+        version = "1.8.2";
+        hash = "063ma7gzqr5c6s8a1yv72jgll3xdajvgclbc8w0ddmqgcrb62x2k";
       };
       polysemy = {
-        version = "1.6.0.0";
-        hash = "15k51ysrfcbkww1562g8zvrlzymlk2rxhcsz9ipsb0q6h571qgvf";
+        version = "1.9.0.0";
+        hash = "1af07cppnjpv5v56wanya1mhkvbfnyynf5447mnkcf4zc4k23pyk";
       };
       polysemy-chronos = {
         version = "0.5.0.0";
         hash = "1h5rqyxpmjslqz145y5qa75fww9iqlrnilpvp6bbk5kz2sz935rz";
       };
       polysemy-conc = {
-        version = "0.11.1.0";
-        hash = "12w102jpdyrfjqz10bg8k0dyczvvii3x1v02vqd8is26qbfm20q0";
+        version = "0.14.1.0";
+        hash = "0lzgw6dqhw0dv00bn9aasys2v8iddxyck5vmpglrp92chba55jxv";
       };
       polysemy-log = {
-        version = "0.4.0.0";
-        hash = "1r9f925884ay06w44r1fvp8bh5nm642g49np2vybz8hjiia8ghdx";
+        version = "0.7.0.0";
+        hash = "16gfg4cy3vpqkdmnqjh413l96qfdxqww9b9szjp97k55zwrd3x6l";
       };
       polysemy-process = {
-        version = "0.11.1.0";
-        hash = "012wngbcn43n6v9x2290sam7nk0jmrhf1fg5nq5jqgvhv1ybmkm1";
+        version = "0.14.1.0";
+        hash = "125fiwq30ybncmc0pb25ki3k2sxbhkjz4k2i53bcj9y026xgvjyi";
       };
       polysemy-resume = {
-        version = "0.5.0.0";
-        hash = "1yavr2h31ffxj861vscm2hddrwi977ddx0sn0hh47zn78pqafz77";
+        version = "0.7.0.0";
+        hash = "1b9agh2qd0nrbd7cc5iabkzjb7g9lnzzy3pprvn33hr54va9p928";
       };
       polysemy-test = {
         version = "0.7.0.0";
@@ -323,10 +323,6 @@
       primitive-unlifted = {
         version = "2.2.0.0";
         hash = "1z4nh2pv9ylbc9mw9dfmjschyn6ci0rqhz5nn9mld3wz45a15aq5";
-      };
-      relude = {
-        version = "1.2.2.0";
-        hash = "0gmcdwci7r0cb2zjry9ycq0kn7x8bfq40ngjd6xdc0pbh7cz6v8i";
       };
       resourcet = {
         version = "1.2.6";
