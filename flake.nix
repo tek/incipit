@@ -4,15 +4,32 @@
   inputs.hix.url = "git+https://git.tryp.io/tek/hix";
 
   outputs = {hix, ...}: hix.lib.pro ({config, ...}: let
-    overrides = {jailbreak, unbreak, ...}: {
-      polysemy-test = jailbreak unbreak;
-      polysemy-conc = jailbreak;
-      polysemy-log = jailbreak;
+
+    overrides = {unbreak, ...}: {
+      polysemy-test = unbreak;
       polysemy-process = unbreak;
     };
+
+    overrides910 = {hackage, jailbreak, unbreak, ...}: {
+      byte-order = jailbreak;
+      bytebuild = jailbreak;
+      chronos = jailbreak;
+      co-log = jailbreak;
+      co-log-concurrent = jailbreak;
+      incipit-base = jailbreak;
+      incipit-core = jailbreak;
+      polysemy-conc = jailbreak;
+      polysemy-chronos = jailbreak;
+      polysemy-log = jailbreak;
+      polysemy-process = jailbreak unbreak;
+      polysemy-resume = jailbreak;
+      polysemy-test = jailbreak unbreak;
+      polysemy-time = jailbreak;
+    };
+
   in {
-    ghcVersions = ["ghc94" "ghc96" "ghc98"];
-    compat.versions = ["ghc96"];
+
+    ghcVersions = ["ghc94" "ghc96" "ghc98" "ghc910"];
     main = "zeugma";
     gen-overrides.enable = true;
 
@@ -117,14 +134,24 @@
     managed = {
       enable = true;
       lower.enable = true;
-      envs.solverOverrides = overrides;
-      latest.compiler = "ghc98";
+      latest.compiler = "ghc910";
+      envs.solverOverrides = overrides910;
     };
 
     inherit overrides;
 
-    envs.latest = { inherit overrides; };
-    envs.lower = { inherit overrides; };
+    envs = {
+
+      latest.overrides = {jailbreak, ...}: {
+        bytebuild = jailbreak;
+        co-log = jailbreak;
+        co-log-concurrent = jailbreak;
+      };
+
+      ghc910.overrides = overrides910;
+
+      lower.globalOverrides = true;
+    };
 
   });
 }
