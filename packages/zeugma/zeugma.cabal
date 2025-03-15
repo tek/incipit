@@ -88,7 +88,7 @@ library
     , polysemy-chronos >=0.5.0.0 && <0.8
     , polysemy-process >=0.11.1.0 && <0.15
     , polysemy-test >=0.7.0.0 && <0.11
-    , tasty >=1.4.2 && <1.6
+    , tasty >=1.2.2 && <1.6
     , tasty-expected-failure >=0.11.1.2 && <0.13
     , tasty-hedgehog >=1.3.0.0 && <1.5
   default-language: GHC2021
