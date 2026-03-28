@@ -83,7 +83,7 @@
       polysemy-resume = "0.9.0.1";
       polysemy-test = "0.10.0.1";
       polysemy-time = "0.7.0.1";
-      tasty = "1.5.3";
+      tasty = "1.5.4";
       tasty-expected-failure = "0.12.3";
       tasty-hedgehog = "1.4.0.2";
     };
@@ -175,8 +175,8 @@
         hash = "0cw39gvmr9rgh3hc0gd55wimm4lxzw9nyrczixk42nw170bpls40";
       };
       tasty = {
-        version = "1.5.3";
-        hash = "1xjlmgsww34asjl9rcwbziw5l4qqbvi5l4b7qvzf4dc7hqkpq1rs";
+        version = "1.5.4";
+        hash = "0x6khif6n0rzfgkvrbiagg1sj0lwmjfr6qarjnjwmb9ywdk7598b";
       };
       tasty-expected-failure = {
         version = "0.12.3";
