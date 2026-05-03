@@ -3,33 +3,9 @@
 
   inputs.hix.url = "git+https://git.tryp.io/tek/hix";
 
-  outputs = {hix, ...}: hix.lib.pro ({config, ...}: let
+  outputs = {hix, ...}: hix.lib.pro ({config, ...}: {
 
-    overrides = {unbreak, ...}: {
-      polysemy-test = unbreak;
-      polysemy-process = unbreak;
-    };
-
-    overrides910 = {hackage, jailbreak, unbreak, ...}: {
-      byte-order = jailbreak;
-      bytebuild = jailbreak;
-      chronos = jailbreak;
-      co-log = jailbreak;
-      co-log-concurrent = jailbreak;
-      incipit-base = jailbreak;
-      incipit-core = jailbreak;
-      polysemy-conc = jailbreak;
-      polysemy-chronos = jailbreak;
-      polysemy-log = jailbreak;
-      polysemy-process = jailbreak unbreak;
-      polysemy-resume = jailbreak;
-      polysemy-test = jailbreak unbreak;
-      polysemy-time = jailbreak;
-    };
-
-  in {
-
-    ghcVersions = ["ghc94" "ghc96" "ghc98" "ghc910"];
+    ghcVersions = ["ghc98" "ghc910" "ghc912"];
     main = "zeugma";
     gen-overrides.enable = true;
 
@@ -123,6 +99,7 @@
       license = "BSD-2-Clause-Patent";
       license-file = "LICENSE";
       author = "Torsten Schmits";
+      language = "GHC2021";
       meta = {
         maintainer = "hackage@tryp.io";
         category = "Prelude";
@@ -132,28 +109,55 @@
     };
 
     managed = {
-      enable = true;
-      lower.enable = true;
-      latest.compiler = "ghc910";
-      envs.solverOverrides = overrides910;
-      mergeBounds = true;
-      forceBounds.polysemy-conc.lower = "0.14";
+      # envs.solverOverrides = overrides910;
+      # mergeBounds = true;
+      # forceBounds.polysemy-conc.lower = "0.14";
+      # lower.envs.solverOverrides = {hackage, ...}: {
+      #
+      # };
+      lower.envs.solverOverrides = {hackage, jailbreak, unbreak, ...}: {
+        bytesmith = hackage "0.3.11.0" "1z083sx6gbrsnlwfhiwcpym1kwyxmjhwrngsi3axa7bmg5c5za5c";
+      };
     };
-
-    inherit overrides;
 
     envs = {
 
-      latest.overrides = {jailbreak, ...}: {
-        bytebuild = jailbreak;
-        co-log = jailbreak;
-        co-log-concurrent = jailbreak;
+      latest.overrides = {jailbreak, hackage, ...}: {
+        # cabal-doctest = hackage "1.0.12" "094mvqgh9bhx5v9xanzkhcm8pcxzmkaa68lr3bqpjzkdxydx81nk";
+        # bytebuild = jailbreak;
+        # co-log = jailbreak;
+        # co-log-concurrent = jailbreak;
       };
 
-      ghc910.overrides = overrides910;
-
-      lower.globalOverrides = true;
+      # ghc910.overrides = overrides910;
+      #
+      # lower.globalOverrides = true;
     };
+
+    managed = {
+      enable = true;
+      lower.enable = true;
+      latest.compiler = "ghc912";
+      lower.compiler = "ghc94";
+    };
+
+    overrides = {hackage, jailbreak, ...}: {
+      polysemy-chronos = jailbreak;
+      polysemy-conc = jailbreak;
+      polysemy-process = jailbreak;
+      polysemy-resume = jailbreak;
+      polysemy-log = jailbreak;
+      polysemy-time = jailbreak;
+      polysemy-test = hackage "0.11.0.1" "0faajcwslgkjigakimz5sxvcd92p8vdzafway8js8622jmprjqjb";
+    };
+
+    package-sets.ghc98.overrides = {jailbreak, ...}: {
+      chronos = jailbreak;
+    };
+
+    hackage.repos."hackage.haskell.org".user = "tek";
+
+    internal.hixCli.dev = true;
 
   });
 }

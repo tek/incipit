@@ -6,21 +6,13 @@ module Zeugma.Run where
 
 import qualified Chronos
 import Chronos (datetimeToTime)
-import Conc (
-  Critical,
-  Gates,
-  interpretCritical,
-  interpretGates,
-  interpretMaskFinal,
-  interpretRace,
-  interpretUninterruptibleMaskFinal,
-  )
+import Conc (Critical, Gates, interpretCritical, interpretGates, interpretMaskFinal, interpretRace)
 import Hedgehog (TestT)
 import Hedgehog.Internal.Property (Failure)
 import Incipit
 import Log (Severity (Crit, Debug, Trace), interpretLogStderrLevelConc)
 import Polysemy.Chronos (ChronosTime, interpretTimeChronos, interpretTimeChronosConstant)
-import Polysemy.Test (Hedgehog, Test, TestError (TestError), runTestAuto)
+import Polysemy.Test (Hedgehog, SkipTestDefaultValue, Test, TestError (TestError), runTestAuto)
 import Time (mkDatetime)
 
 #if MIN_VERSION_polysemy_process(0, 14, 0)
@@ -36,7 +28,6 @@ type ConcTestStack' =
     Critical,
     Gates,
     Mask,
-    UninterruptibleMask,
     Race,
     Async,
     Stop Text,
@@ -68,7 +59,6 @@ interpretTest' level =
   stopToError .
   asyncToIOFinal .
   interpretRace .
-  interpretUninterruptibleMaskFinal .
   interpretMaskFinal .
   interpretGates .
   interpretCritical .
@@ -99,6 +89,7 @@ interpretTestFrozen level =
 -- | Run the test stack as a 'TestT' with the specified log level.
 runTestLevel ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Severity ->
   Sem TestStack a ->
   TestT IO a
@@ -108,6 +99,7 @@ runTestLevel level =
 -- | Run the test stack as a 'TestT' with the specified log level, with 'ChronosTime' frozen at 'testTime'.
 runTestFrozenLevel ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Severity ->
   Sem TestStack a ->
   TestT IO a
@@ -117,6 +109,7 @@ runTestFrozenLevel level =
 -- | Run the test stack as a 'TestT' with a log level of 'Trace'.
 runTestTrace ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTestTrace =
@@ -125,6 +118,7 @@ runTestTrace =
 -- | Run the test stack as a 'TestT' with a log level of 'Debug'.
 runTestDebug ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTestDebug =
@@ -133,6 +127,7 @@ runTestDebug =
 -- | Run the test stack as a 'TestT' with a log level of 'Crit'.
 runTest ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTest =
@@ -141,6 +136,7 @@ runTest =
 -- | Run the test stack as a 'TestT' with a log level of 'Trace' and 'ChronosTime' frozen at 'testTime'.
 runTestFrozenTrace ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTestFrozenTrace =
@@ -149,6 +145,7 @@ runTestFrozenTrace =
 -- | Run the test stack as a 'TestT' with a log level of 'Debug' and 'ChronosTime' frozen at 'testTime'.
 runTestFrozenDebug ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTestFrozenDebug =
@@ -157,6 +154,7 @@ runTestFrozenDebug =
 -- | Run the test stack as a 'TestT' with a log level of 'Crit' and 'ChronosTime' frozen at 'testTime'.
 runTestFrozen ::
   HasCallStack =>
+  SkipTestDefaultValue a =>
   Sem TestStack a ->
   TestT IO a
 runTestFrozen =
