@@ -5,7 +5,7 @@ cabal-version: 2.2
 -- see: https://github.com/sol/hpack
 
 name:           zeugma
-version:        0.10.0.1
+version:        0.11.0.0
 synopsis:       Polysemy effects for testing
 description:    See https://hackage.haskell.org/package/zeugma/docs/Zeugma.html
 category:       Prelude
@@ -83,7 +83,7 @@ library
       base >=4.17.2.1 && <4.22
     , chronos >=1.1.5 && <1.2
     , hedgehog >=1.4 && <1.8
-    , incipit ==0.10.0.1
+    , incipit <0.12
     , polysemy >=1.9.1.0 && <1.10
     , polysemy-chronos >=0.5.0.0 && <0.8
     , polysemy-process >=0.12.0.0 && <0.16

@@ -41,7 +41,7 @@
       };
       incipit = {
         lower = null;
-        upper = null;
+        upper = "0.12";
       };
       polysemy = {
         lower = "1.9.1.0";
@@ -565,6 +565,13 @@
       };
     };
   };
-  packages = {};
+  packages = {
+    incipit = {
+      version = "0.11.0.0";
+    };
+    zeugma = {
+      version = "0.11.0.0";
+    };
+  };
   resolving = false;
 }
