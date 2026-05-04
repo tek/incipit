@@ -109,36 +109,15 @@
     };
 
     managed = {
-      # envs.solverOverrides = overrides910;
-      # mergeBounds = true;
-      # forceBounds.polysemy-conc.lower = "0.14";
-      # lower.envs.solverOverrides = {hackage, ...}: {
-      #
-      # };
-      lower.envs.solverOverrides = {hackage, jailbreak, unbreak, ...}: {
-        bytesmith = hackage "0.3.11.0" "1z083sx6gbrsnlwfhiwcpym1kwyxmjhwrngsi3axa7bmg5c5za5c";
-      };
-    };
-
-    envs = {
-
-      latest.overrides = {jailbreak, hackage, ...}: {
-        # cabal-doctest = hackage "1.0.12" "094mvqgh9bhx5v9xanzkhcm8pcxzmkaa68lr3bqpjzkdxydx81nk";
-        # bytebuild = jailbreak;
-        # co-log = jailbreak;
-        # co-log-concurrent = jailbreak;
-      };
-
-      # ghc910.overrides = overrides910;
-      #
-      # lower.globalOverrides = true;
-    };
-
-    managed = {
       enable = true;
       lower.enable = true;
       latest.compiler = "ghc912";
-      lower.compiler = "ghc94";
+      lower = {
+        compiler = "ghc94";
+        envs.solverOverrides = {hackage, jailbreak, unbreak, ...}: {
+          bytesmith = hackage "0.3.11.0" "1z083sx6gbrsnlwfhiwcpym1kwyxmjhwrngsi3axa7bmg5c5za5c";
+        };
+      };
     };
 
     overrides = {hackage, jailbreak, ...}: {
