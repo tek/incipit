@@ -78,7 +78,7 @@
       base = "4.21.0.0";
       chronos = "1.1.7.0";
       hedgehog = "1.7";
-      incipit-core = "0.7.0.1";
+      incipit-core = "0.7.0.2";
       polysemy = "1.9.2.0";
       polysemy-chronos = "0.7.0.2";
       polysemy-conc = "0.15.0.0";
@@ -136,8 +136,8 @@
         repo = "hackage.haskell.org";
       };
       incipit-core = {
-        version = "0.7.0.1";
-        hash = "1bnaqzdc1vs9vcdlbaljdwv586syam3ahppqq9lwmg2jcvqp2zqr";
+        version = "0.7.0.2";
+        hash = "0izgrcc75icfv9hncrcp5dwc40ydjvc3p2xi10n221nkan6wq6hc";
         repo = "hackage.haskell.org";
       };
       polysemy-chronos = {
