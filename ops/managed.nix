@@ -87,7 +87,7 @@
       polysemy-resume = "0.9.0.2";
       polysemy-test = "0.11.0.1";
       polysemy-time = "0.7.0.2";
-      tasty = "1.5.4";
+      tasty = "1.5.5";
       tasty-expected-failure = "0.12.3";
       tasty-hedgehog = "1.4.0.2";
     };
@@ -176,8 +176,8 @@
         repo = "hackage.haskell.org";
       };
       tasty = {
-        version = "1.5.4";
-        hash = "0x6khif6n0rzfgkvrbiagg1sj0lwmjfr6qarjnjwmb9ywdk7598b";
+        version = "1.5.5";
+        hash = "1h1myhp1g5y6iwzx0m29w5s7vpay9cm3c83jr4g2c4mpjjyqixil";
         repo = "hackage.haskell.org";
       };
       tasty-expected-failure = {
